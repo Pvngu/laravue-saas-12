@@ -13,11 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call(SubscriptionPlansTableSeeder::class);
+        $this->call(LangTableSeeder::class);
+        $this->call(CompanyTableSeeder::class);
+        $this->call(CurrencyTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(SettingTableSeeder::class);
+        $this->call(FormFieldNamesTableSeeder::class);
+        $this->call(EmailTemplatesTableSeeder::class);
+        $this->call(FormsTableSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Creating SuperAdmin
+        \App\SuperAdmin\Classes\SuperAdminCommon::createSuperAdmin(true);
     }
 }

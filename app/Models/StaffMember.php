@@ -6,20 +6,21 @@ use App\Casts\Hash;
 use App\Classes\Common;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use Illuminate\Database\Eloquent\Builder;
 
-class User extends BaseModel implements AuthenticatableContract, JWTSubject
+class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubject
 {
-    use Notifiable, HasRoles, Authenticatable, HasFactory;
+    use Notifiable, EntrustUserTrait, Authenticatable, HasFactory;
+
+    protected  $table = 'users';
 
     protected $default = ["xid", "name", "profile_image"];
 
-    protected $guarded = ['id', 'company_id', 'created_at', 'updated_at'];
+    protected $guarded = ['id', 'company_id', 'is_superadmin', 'created_at', 'updated_at'];
 
     protected $dates = ['last_active_on'];
 
@@ -45,9 +46,9 @@ class User extends BaseModel implements AuthenticatableContract, JWTSubject
     {
         parent::boot();
 
-        // static::addGlobalScope('type', function (Builder $builder) {
-        //     $builder->where('users.user_type', '=', 'staff_members');
-        // });
+        static::addGlobalScope('type', function (Builder $builder) {
+            $builder->where('users.user_type', '=', 'staff_members');
+        });
     }
 
     public function setPasswordAttribute($value)
