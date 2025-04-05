@@ -39,5 +39,13 @@ class AppServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/common.php'));
+
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+
+        Route::middleware('web')
+            ->namespace($this->superAdminNamespace)
+            ->group(base_path('app/SuperAdmin/routes/app.php'));
     }
 }

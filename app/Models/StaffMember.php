@@ -11,10 +11,11 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Permission\Traits\HasRoles;
 
 class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubject
 {
-    use Notifiable, EntrustUserTrait, Authenticatable, HasFactory;
+    use Notifiable, HasRoles, Authenticatable, HasFactory;
 
     protected  $table = 'users';
 

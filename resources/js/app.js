@@ -41,30 +41,6 @@ async function bootstrap() {
     app.use(store);
     app.use(print);
 
-    // Plugin Import
-    const allModules = window.config.installed_modules;
-    const allModulesPromise = [];
-    allModules.forEach((allModule) => {
-        const moduleName = allModule.verified_name;
-        const pluginModule = import(`../../Modules/${moduleName}/Resources/assets/js/${moduleName}.js`);
-        allModulesPromise.push(pluginModule);
-    });
-    Promise.all(allModulesPromise).then(
-        (allModulesPromiseResponse) => {
-            allModulesPromiseResponse.forEach((allModulesPromiseResponseData) => {
-                app.use(allModulesPromiseResponseData.default, { routes, store });
-            });
-
-            routes.addRoute({
-                path: "/:catchAll(.*)",
-                redirect: '/'
-            });
-
-            // Adding routes after plugins routes
-            app.use(routes);
-        }
-    );
-
     // Global Components
     app.component('admin-page-filters', AdminPageFilter);
     app.component('admin-page-table-content', AdminPageTableContent);

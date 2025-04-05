@@ -52,6 +52,12 @@ class CreateUsersTable extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('cache', function ($table) {
+            $table->string('key')->unique();
+            $table->text('value');
+            $table->integer('expiration');
+        });
     }
 
     /**

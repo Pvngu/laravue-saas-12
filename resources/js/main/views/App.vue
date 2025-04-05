@@ -47,7 +47,9 @@ export default {
         const store = useStore();
         const darkTheme = "dark";
         const { updatePageTitle, appSetting, appType } = common();
-        const appChecking = computed(() => store.state.auth.appChecking);
+        const appChecking = computed(() => {
+            store.state.auth.appChecking;
+        });
 
         onMounted(() => {
             // if (

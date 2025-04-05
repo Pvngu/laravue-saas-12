@@ -18,7 +18,7 @@ class BaseModel extends ApiModel
             $value = $this->{$this->hashableGetterFunctions[$method]};
 
             if ($value) {
-                $value = $sqids->encode($value);
+                $value = $sqids->encode([$value]);
             }
 
             return $value;
@@ -33,7 +33,7 @@ class BaseModel extends ApiModel
                 $valueArray = [];
 
                 foreach ($value as $productId) {
-                    $valueArray[] = $sqids->encode($productId);
+                    $valueArray[] = $sqids->encode([$productId]);
                 }
 
                 $value = $valueArray;

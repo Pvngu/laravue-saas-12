@@ -17,6 +17,20 @@ return Application::configure(basePath: dirname(__DIR__))
             'api.super_admin' => \App\Http\Middleware\ApiSuperAdminMiddleware::class,
             'checkpermission' => \App\Http\Middleware\CheckPermission::class,
             'license.expire.date.wise' => \App\Http\Middleware\LicenseExpireDateWise::class,
+            'auth' => \App\Http\Middleware\Authenticate::class,
+            'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+            'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
+            'can' => \Illuminate\Auth\Middleware\Authorize::class,
+            'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+            'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+            'signed' => \App\Http\Middleware\ValidateSignature::class,
+            'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+            'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+            
+            'api.auth.check' => \App\Http\Middleware\ApiAuthMiddleware::class,
+            'api.permission.check' => \App\Http\Middleware\CheckPermission::class,
+            'api.superadmin.check' => \App\Http\Middleware\ApiSuperAdminMiddleware::class,
+            'license-expire' => \App\Http\Middleware\LicenseExpireDateWise::class,
         ]);
 
         $middleware->append([
