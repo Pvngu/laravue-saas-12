@@ -41,8 +41,6 @@
                 'perPage': 10,
 				'product_name': "{{ $appName }}",
 				'product_version': "{{ $appVersion }}",
-				'modules': @json($enabledModules),
-				'installed_modules': @json($installedModules),
 				'theme_mode': "{{ $themeMode }}",
 				'appChecking': true,
 				'app_version': "{{ $appVersion }}",

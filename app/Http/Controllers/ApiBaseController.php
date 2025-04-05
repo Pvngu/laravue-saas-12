@@ -33,11 +33,7 @@ class ApiBaseController extends ApiController
     public function setStorageSettings()
     {
         $storageSetting = Settings::where('setting_type', 'storage')->where('status', 1);
-        if (app_type() == 'saas') {
-            $storageSetting = $storageSetting->where('is_global', 1);
-        } else {
-            $storageSetting = $storageSetting->where('is_global', 0);
-        }
+        $storageSetting = $storageSetting->where('is_global', 1);
 
         $storageSetting =  $storageSetting->first();
 

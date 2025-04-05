@@ -21,31 +21,25 @@ class CurrencyController extends ApiBaseController
 
     protected function modifyIndex($query)
     {
-        if (app_type() == 'saas') {
-            $company = company();
-            $query = $query->withoutGlobalScope(CompanyScope::class)
-                ->where('currencies.company_id', $company->id);
-        }
+        $company = company();
+        $query = $query->withoutGlobalScope(CompanyScope::class)
+            ->where('currencies.company_id', $company->id);
 
         return $query;
     }
 
     public function storing(Currency $currency)
     {
-        if (app_type() == 'saas') {
-            $company = company();
-            $currency->company_id = $company->id;
-        }
+        $company = company();
+        $currency->company_id = $company->id;
 
         return $currency;
     }
 
     public function updating(Currency $currency)
     {
-        if (app_type() == 'saas') {
-            $company = company();
-            $currency->company_id = $company->id;
-        }
+        $company = company();
+        $currency->company_id = $company->id;
 
         return $currency;
     }

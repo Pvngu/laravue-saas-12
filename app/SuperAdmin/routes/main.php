@@ -13,7 +13,6 @@ Route::get('{path}', function () {
     
     $appName = "LaraKitSaas";
     $appVersion = File::get(public_path() . '/superadmin_version.txt');
-    $modulesData = Common::moduleInformations();
     $themeMode = session()->has('theme_mode') ? session('theme_mode') : 'light';
     $company = GlobalCompany::first();
     $appVersion = File::get('superadmin_version.txt');
@@ -32,8 +31,6 @@ Route::get('{path}', function () {
     return view('welcome', [
         'appName' => $appName,
         'appVersion' => preg_replace("/\r|\n/", "", $appVersion),
-        'installedModules' => $modulesData['installed_modules'],
-        'enabledModules' => $modulesData['enabled_modules'],
         'themeMode' => $themeMode,
         'company' => $company,
         'appEnv' => env('APP_ENV'),

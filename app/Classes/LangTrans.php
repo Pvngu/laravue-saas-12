@@ -4,7 +4,6 @@ namespace App\Classes;
 
 use App\Models\Lang;
 use App\Models\Translation;
-use Nwidart\Modules\Facades\Module;
 
 class LangTrans
 {

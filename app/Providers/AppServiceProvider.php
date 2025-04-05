@@ -33,7 +33,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::middleware('web')
-                    ->namespace($this->superAdminNamespace)
-                    ->group(base_path('app/SuperAdmin/routes/main.php'));
+            ->namespace($this->superAdminNamespace)
+            ->group(base_path('app/SuperAdmin/routes/main.php'));
+
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/common.php'));
     }
 }

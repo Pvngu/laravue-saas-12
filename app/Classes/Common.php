@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Nwidart\Modules\Facades\Module;
 use Sqids\Sqids;
 
 class Common
@@ -91,34 +90,6 @@ class Common
 
             return asset($path);
         }
-    }
-
-    public static function moduleInformations()
-    {
-        $allModules = Module::all();
-        $allEnabledModules = Module::allEnabled();
-        $installedModules = [];
-        $enabledModules = [];
-
-        foreach ($allModules as $key => $allModule) {
-            $modulePath = $allModule->getPath();
-            $versionFileName = 'superadmin_version.txt';
-            $version = File::get($modulePath . '/' . $versionFileName);
-
-            $installedModules[] = [
-                'verified_name' => $key,
-                'current_version' => preg_replace("/\r|\n/", "", $version)
-            ];
-        }
-
-        foreach ($allEnabledModules as $allEnabledModuleKey => $allEnabledModule) {
-            $enabledModules[] = $allEnabledModuleKey;
-        }
-
-        return [
-            'installed_modules' => $installedModules,
-            'enabled_modules' => $enabledModules,
-        ];
     }
 
     public static function getIdFromHash($hash)
