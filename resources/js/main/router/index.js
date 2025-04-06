@@ -13,16 +13,6 @@ import { checkUserPermission } from "../../common/scripts/functions";
 
 const APP_TYPE = window.config.app_type;
 
-const checkCompanySetup = (isSuper = false) => {
-    const { appSetting } = store.state.auth;
-    if (isSuper) {
-        return (
-            appSetting.x_currency_id != null && appSetting.white_label_completed
-        );
-    }
-    return appSetting.x_currency_id != null;
-};
-
 const router = createRouter({
     history: createWebHistory(),
     routes: [

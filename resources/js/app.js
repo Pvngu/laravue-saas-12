@@ -40,6 +40,7 @@ async function bootstrap() {
     app.use(PerfectScrollbarPlugin)
     app.use(store);
     app.use(print);
+    app.use(routes);
 
     // Global Components
     app.component('admin-page-filters', AdminPageFilter);
@@ -48,7 +49,7 @@ async function bootstrap() {
     window.i18n = i18n;
 
     routes.isReady().then(() => {
-
+        console.log('App Mounted')
         app.mount("#app");
     })
 }
