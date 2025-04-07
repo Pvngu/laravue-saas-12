@@ -45,7 +45,6 @@
 				'appChecking': true,
 				'app_version': "{{ $appVersion }}",
 				'app_env': "{{ $appEnv }}",
-				'app_type': "{{ $appType }}",
             };
         </script>
 

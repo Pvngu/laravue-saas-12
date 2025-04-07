@@ -4,7 +4,7 @@ namespace App\SuperAdmin\Observers;
 
 use App\Classes\Common;
 use App\Models\Company;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use App\SuperAdmin\Classes\SuperAdminCommon;
 
 class CompanyObserver
@@ -13,7 +13,6 @@ class CompanyObserver
     public function created(Company $company)
     {
         // $company = Common::addCurrencies($company);
-        error_log('AaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
 
         if (!$company->is_global) {
             $company = $this->addAdminRole($company);
@@ -27,12 +26,12 @@ class CompanyObserver
     public function addAdminRole($company)
     {
         // Seeding Data
-        $adminRole = new Role();
-        $adminRole->company_id = $company->id;
-        $adminRole->name = 'admin';
-        $adminRole->display_name = 'Admin';
-        $adminRole->description = 'Admin is allowed to manage everything of the app.';
-        $adminRole->save();
+        Role::create([
+            'name' => 'admin',
+            'company_id' => $company->id,
+            'display_name' => 'Admin',
+            'description' => 'Admin is allowed to manage everything of the app.',
+        ]);
 
         return $company;
     }

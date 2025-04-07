@@ -103,7 +103,7 @@ import apiAdmin from "../../../common/composable/apiAdmin";
 export default defineComponent({
     setup() {
         const { addEditRequestAdmin, loading, rules } = apiAdmin();
-        const { globalSetting, appType } = common();
+        const { globalSetting } = common();
         const loginBackground = globalSetting.value.login_image_url;
         const store = useStore();
         const router = useRouter();
@@ -135,38 +135,30 @@ export default defineComponent({
                             "auth/updateVisibleSubscriptionModules",
                             response.visible_subscription_modules
                         );
-
-                        if (appType == "non-saas") {
+                        if (user.is_superadmin && user.user_type == "super_admins") {
+                            store.commit("auth/updateApp", response.app);
+                            store.commit(
+                                "auth/updateEmailVerifiedSetting",
+                                response.email_setting_verified
+                            );
+                            router.push({
+                                name: "superadmin.dashboard.index",
+                                params: { success: true },
+                            });
+                        } else {
+                            store.commit("auth/updateApp", response.app);
+                            store.commit(
+                                "auth/updateEmailVerifiedSetting",
+                                response.email_setting_verified
+                            );
+                            store.commit(
+                                "auth/updateAddMenus",
+                                response.shortcut_menus.credentials
+                            );
                             router.push({
                                 name: "admin.dashboard.index",
                                 params: { success: true },
                             });
-                        } else {
-                            if (user.is_superadmin && user.user_type == "super_admins") {
-                                store.commit("auth/updateApp", response.app);
-                                store.commit(
-                                    "auth/updateEmailVerifiedSetting",
-                                    response.email_setting_verified
-                                );
-                                router.push({
-                                    name: "superadmin.dashboard.index",
-                                    params: { success: true },
-                                });
-                            } else {
-                                store.commit("auth/updateApp", response.app);
-                                store.commit(
-                                    "auth/updateEmailVerifiedSetting",
-                                    response.email_setting_verified
-                                );
-                                store.commit(
-                                    "auth/updateAddMenus",
-                                    response.shortcut_menus.credentials
-                                );
-                                router.push({
-                                    name: "admin.dashboard.index",
-                                    params: { success: true },
-                                });
-                            }
                         }
                     } else {
                         onRequestSend.value = {

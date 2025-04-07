@@ -205,7 +205,7 @@
                     </a-menu-item>
 
                     <a-menu-item
-                        v-if="appType == 'saas' && appSetting.x_admin_id == user.xid"
+                        v-if="appSetting.x_admin_id == user.xid"
                         @click="
                             () => {
                                 menuSelected();
@@ -313,7 +313,6 @@ export default defineComponent({
     setup(props, { emit }) {
         const {
             appSetting,
-            appType,
             user,
             permsArray,
             appModules,
@@ -439,7 +438,6 @@ export default defineComponent({
             menuSelected,
             menuCollapsed,
             appSetting,
-            appType,
             user,
             permsArray,
             appModules,

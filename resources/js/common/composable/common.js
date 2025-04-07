@@ -15,7 +15,6 @@ dayjs.extend(timezone);
 const common = () => {
     const store = useStore();
     const { t } = useI18n();
-    const appType = window.config.app_type;
     const downloadLangCsvUrl = window.config.download_lang_csv_url;
     const menuCollapsed = computed(() => store.state.auth.menuCollapsed);
     const cssSettings = computed(() => store.state.auth.cssSettings);
@@ -204,14 +203,10 @@ const common = () => {
     }
 
     const willSubscriptionModuleVisible = (moduleName) => {
-        if (appType == 'non-saas') {
-            return true;
+        if (appSetting.value.subscription_plan && appSetting.value.subscription_plan.modules) {
+            return includes(appSetting.value.subscription_plan.modules, moduleName);
         } else {
-            if (appSetting.value.subscription_plan && appSetting.value.subscription_plan.modules) {
-                return includes(appSetting.value.subscription_plan.modules, moduleName);
-            } else {
-                return false;
-            }
+            return false;
         }
     }
 
@@ -234,7 +229,6 @@ const common = () => {
     return {
         menuCollapsed,
         appSetting,
-        appType,
         addMenus,
         selectedLang,
         user,

@@ -5,8 +5,8 @@
             :xs="24"
             :sm="24"
             :md="24"
-            :lg="appType == 'saas' ? 24 : 18"
-            :xl="appType == 'saas' ? 24 : 18"
+            :lg="24"
+            :xl="24"
         >
             <div v-if="formData.mail_driver == 'smtp'">
                 <a-alert
@@ -275,20 +275,6 @@
                 </a-form>
             </a-card>
         </a-col>
-        <a-col
-            class="settings-sidebar-content-container mt-20 mb-20"
-            v-if="appType == 'non-saas'"
-            :xs="24"
-            :sm="24"
-            :md="24"
-            :lg="6"
-            :xl="6"
-        >
-            <SendMailSetting
-                v-if="sendMailSettings && sendMailSettings.xid"
-                :sendMailSettings="sendMailSettings"
-            />
-        </a-col>
     </a-row>
 </template>
 <script>
@@ -299,7 +285,6 @@ import apiAdmin from "../../../../../common/composable/apiAdmin";
 import TestMail from "./TestMail.vue";
 import SendMailSetting from "./SendMailSetting.vue";
 import { getUrlByAppType } from "../../../../../common/scripts/functions";
-import common from "../../../../../common/composable/common";
 
 export default {
     components: {
@@ -309,7 +294,6 @@ export default {
     },
     setup() {
         const { addEditRequestAdmin, loading, rules } = apiAdmin();
-        const { appType } = common();
         const newAdminRequest = apiAdmin();
         const { t } = useI18n();
         const formData = ref({});
@@ -352,7 +336,6 @@ export default {
         };
 
         return {
-            appType,
             formData,
             rules,
             loading,

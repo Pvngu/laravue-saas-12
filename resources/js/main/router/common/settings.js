@@ -5,8 +5,7 @@ import DatabaseBackup from '../../views/settings/database-backup/index.vue';
 
 // Defining route prefix and permission
 // According to app_type
-const appType = window.config.app_type;
-const routePrefix = appType == 'non-saas' ? 'admin' : 'superadmin';
+const routePrefix = 'superadmin';
 
 export default [
     {
@@ -17,7 +16,7 @@ export default [
             requireAuth: true,
             menuParent: "settings",
             menuKey: route => "translations",
-            permission: appType == "non-saas" ? "translations_view" : "superadmin"
+            permission: "superadmin"
         }
     },
     {
@@ -28,7 +27,7 @@ export default [
             requireAuth: true,
             menuParent: "settings",
             menuKey: route => "storage_settings",
-            permission: appType == "non-saas" ? "storage_edit" : "superadmin"
+            permission: "superadmin"
         }
     },
     {
@@ -39,7 +38,7 @@ export default [
             requireAuth: true,
             menuParent: "settings",
             menuKey: route => "email_settings",
-            permission: appType == "non-saas" ? "email_edit" : "superadmin"
+            permission: "superadmin"
         }
     },
     {
@@ -50,7 +49,7 @@ export default [
             requireAuth: true,
             menuParent: "settings",
             menuKey: route => "database_backup",
-            permission: appType == "non-saas" ? "database_backup" : "superadmin"
+            permission: "superadmin"
         }
     },
 ];

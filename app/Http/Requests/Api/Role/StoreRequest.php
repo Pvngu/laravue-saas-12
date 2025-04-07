@@ -25,7 +25,6 @@ class StoreRequest extends BaseRequest
 	{
 		$rules = [
 			'name' => 'required|not_in:admin|unique:roles,name',
-			'display_name' => 'required',
 			'permissions' => 'required'
 		];
 

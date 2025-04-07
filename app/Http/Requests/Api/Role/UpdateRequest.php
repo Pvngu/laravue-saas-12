@@ -30,7 +30,6 @@ class UpdateRequest extends BaseRequest
 
 		return [
 			'name' => 'required|unique:roles,name,' . $id,
-			'display_name' => 'required',
 			'permissions' => 'required'
 		];
 	}

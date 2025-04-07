@@ -34,7 +34,6 @@ Route::get('{path}', function () {
         'themeMode' => $themeMode,
         'company' => $company,
         'appEnv' => env('APP_ENV'),
-        'appType' => 'saas',
         'loadingLangMessageLang' => $loadingLangMessageLang->value,
         'defaultLangKey' => $lang->key,
         'loadingImage' => $company->light_logo_url,

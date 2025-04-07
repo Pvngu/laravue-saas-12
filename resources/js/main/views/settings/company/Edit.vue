@@ -493,54 +493,6 @@
                                     </a-select>
                                 </a-form-item>
                             </a-col>
-                            <a-col
-                                v-if="appType == 'non-saas'"
-                                :xs="24"
-                                :sm="24"
-                                :md="4"
-                                :lg="4"
-                            >
-                                <a-form-item
-                                    :label="$t('company.app_debug')"
-                                    name="app_debug"
-                                    :help="
-                                        rules.app_debug ? rules.app_debug.message : null
-                                    "
-                                    :validateStatus="rules.app_debug ? 'error' : null"
-                                >
-                                    <a-switch
-                                        v-model:checked="formData.app_debug"
-                                        :checkedValue="1"
-                                        :unCheckedValue="0"
-                                    />
-                                </a-form-item>
-                            </a-col>
-                            <a-col
-                                v-if="appType == 'non-saas'"
-                                :xs="24"
-                                :sm="24"
-                                :md="4"
-                                :lg="4"
-                            >
-                                <a-form-item
-                                    :label="$t('company.update_app_notification')"
-                                    name="update_app_notification"
-                                    :help="
-                                        rules.update_app_notification
-                                            ? rules.update_app_notification.message
-                                            : null
-                                    "
-                                    :validateStatus="
-                                        rules.update_app_notification ? 'error' : null
-                                    "
-                                >
-                                    <a-switch
-                                        v-model:checked="formData.update_app_notification"
-                                        :checkedValue="1"
-                                        :unCheckedValue="0"
-                                    />
-                                </a-form-item>
-                            </a-col>
                         </a-row>
 
                         <a-row :gutter="16">
@@ -620,33 +572,6 @@
                             </a-col>
                         </a-row>
 
-                        <a-row :gutter="16" v-if="appType == 'non-saas'">
-                            <a-col :xs="24" :sm="24" :md="6" :lg="6">
-                                <a-form-item
-                                    :label="$t('company.login_image')"
-                                    name="login_image"
-                                    :help="
-                                        rules.login_image
-                                            ? rules.login_image.message
-                                            : null
-                                    "
-                                    :validateStatus="rules.login_image ? 'error' : null"
-                                >
-                                    <Upload
-                                        :formData="formData"
-                                        folder="company"
-                                        imageField="login_image"
-                                        @onFileUploaded="
-                                            (file) => {
-                                                formData.login_image = file.file;
-                                                formData.login_image_url = file.file_url;
-                                            }
-                                        "
-                                    />
-                                </a-form-item>
-                            </a-col>
-                        </a-row>
-
                         <a-row :gutter="16">
                             <a-col :xs="24" :sm="24" :md="24" :lg="24">
                                 <a-form-item>
@@ -711,7 +636,7 @@ export default {
     },
     setup() {
         const { addEditRequestAdmin, loading, rules } = apiAdmin();
-        const { permsArray, appSetting, dayjsObject, appType } = common();
+        const { permsArray, appSetting, dayjsObject } = common();
         const { t } = useI18n();
         const store = useStore();
         const formData = ref({});
@@ -808,7 +733,6 @@ export default {
         };
 
         return {
-            appType,
             permsArray,
             formData,
             loading,

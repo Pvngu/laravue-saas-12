@@ -46,7 +46,7 @@ export default {
         const router = useRouter();
         const store = useStore();
         const darkTheme = "dark";
-        const { updatePageTitle, appSetting, appType } = common();
+        const { updatePageTitle, appSetting } = common();
         const appChecking = computed(() => {
             store.state.auth.appChecking;
         });
@@ -77,7 +77,6 @@ export default {
 
             // Redirecting if plan is expired
             if (
-                appType == "saas" &&
                 appSetting.value.is_global == 0 &&
                 appSetting.value.status == "license_expired" &&
                 newVal &&

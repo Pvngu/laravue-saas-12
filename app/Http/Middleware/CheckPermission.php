@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\User;
 use Examyou\RestAPI\Exceptions\UnauthorizedException;
 
 class CheckPermission
@@ -31,7 +32,7 @@ class CheckPermission
 
             // Those route for which we don't want to check permission
             // We will check permission for those on controller level
-            $skipResourcePath = ['call_managers', 'leads', 'lead_logs', 'lead_follow_ups', 'salesman_bookings', 'permissions'];
+            $skipResourcePath = ['permissions'];
 
             if (in_array($resourceRequestString, $resourceRequests) && in_array($routePathString, $skipResourcePath) === false) {
 
@@ -54,6 +55,8 @@ class CheckPermission
                 } else if ($resourceRequestString == 'destroy') {
                     $permission = $routePathString . '_delete';
                 }
+
+                error_log('Has Permission: ' . ($user->hasPermissionTo($permission) ? 'true' : 'false'));
 
                 if ($permission != "" && !$user->ability('admin', $permission)) {
                     throw new UnauthorizedException("Don't have valid permission");

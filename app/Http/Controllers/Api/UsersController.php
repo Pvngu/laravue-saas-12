@@ -8,12 +8,9 @@ use App\Http\Requests\Api\User\StoreRequest;
 use App\Http\Requests\Api\User\UpdateRequest;
 use App\Http\Requests\Api\User\DeleteRequest;
 use App\Models\User;
-use App\Traits\UserTraits;
 
 class UsersController extends ApiBaseController
 {
-    use UserTraits;
-
     protected $model = User::class;
 
     protected $indexRequest = IndexRequest::class;

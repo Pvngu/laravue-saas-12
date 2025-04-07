@@ -11,8 +11,6 @@ import superAdminRoutes from "../../superadmin/router/index";
 import subscriptionRoutes from "../../superadmin/router/admin/index";
 import { checkUserPermission } from "../../common/scripts/functions";
 
-const APP_TYPE = window.config.app_type;
-
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -61,7 +59,7 @@ router.beforeEach((to, from, next) => {
         if (to.meta.requireUnauth && isLoggedIn) {
             return next({ name: "admin.dashboard.index" });
         }
-        if (to.name === `${APP_TYPE}.settings.modules.index`) {
+        if (to.name === 'saas.settings.modules.index') {
             return next();
         }
         const { permission } = to.meta;

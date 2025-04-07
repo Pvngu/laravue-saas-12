@@ -19,12 +19,6 @@
                     #extra
                 >
                     <a-space>
-                        <ImportTranslation
-                            v-if="appType == 'non-saas'"
-                            :pageTitle="$t('translations.import_translations')"
-                            :sampleFileUrl="sampleFileUrl"
-                            importUrl="translations/import"
-                        />
                         <a-button type="primary" @click="addItem">
                             <PlusOutlined />
                             {{ $t("langs.add") }}
@@ -73,12 +67,6 @@
                                 <PlusOutlined />
                                 {{ $t("langs.add") }}
                             </a-button>
-                            <ImportTranslation
-                                v-if="appType == 'non-saas'"
-                                :pageTitle="$t('translations.import_translations')"
-                                :sampleFileUrl="sampleFileUrl"
-                                importUrl="translations/import"
-                            />
                         </a-space>
                     </template>
                 </template>
@@ -106,7 +94,7 @@ export default {
         ImportTranslation,
     },
     setup() {
-        const { permsArray, appType } = common();
+        const { permsArray } = common();
         const langSettingRef = ref(null);
         const sampleFileUrl = window.config.translatioins_sample_file;
 
@@ -116,7 +104,6 @@ export default {
 
         return {
             permsArray,
-            appType,
             langSettingRef,
             addItem,
 

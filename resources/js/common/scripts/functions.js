@@ -62,8 +62,7 @@ const buildAddress = (address) => {
 };
 
 const getUrlByAppType = (pathUrl) => {
-    const appType = window.config.app_type;
-    return appType == 'non-saas' ? pathUrl : `superadmin/${pathUrl}`;
+    return `superadmin/${pathUrl}`;
 }
 
 export {

@@ -85,7 +85,7 @@ if (!function_exists('user')) {
             $user = $user->load(['role' => function ($query) use ($user) {
                 return $query->withoutGlobalScope(CompanyScope::class)
                     ->where('company_id', $user->company_id);
-            }, 'role.perms']);
+            }, 'role.permissions']);
 
             session(['user' => $user]);
             return session('user');

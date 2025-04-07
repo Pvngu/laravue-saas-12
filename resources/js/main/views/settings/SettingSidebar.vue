@@ -31,20 +31,6 @@
                     {{ $t("menu.profile") }}
                 </a-menu-item>
                 <a-menu-item
-                    key="translations"
-                    v-if="
-                        appType == 'non-saas' &&
-                        (permsArray.includes('translations_view') ||
-                            permsArray.includes('admin'))
-                    "
-                    @click="$router.push({ name: 'admin.settings.translations.index' })"
-                >
-                    <template #icon>
-                        <TranslationOutlined />
-                    </template>
-                    {{ $t("menu.translations") }}
-                </a-menu-item>
-                <a-menu-item
                     key="roles"
                     v-if="
                         permsArray.includes('roles_view') || permsArray.includes('admin')
@@ -72,7 +58,6 @@
                 <a-menu-item
                     key="email_settings"
                     v-if="
-                        appType == 'saas' &&
                         (permsArray.includes('email_edit') ||
                             permsArray.includes('admin'))
                     "
@@ -130,9 +115,8 @@ export default defineComponent({
         DatabaseOutlined,
     },
     setup() {
-        const { appSetting, user, permsArray, appModules, appType } = common();
+        const { permsArray } = common();
         const route = useRoute();
-        const store = useStore();
         const selectedKeys = ref([]);
 
         onMounted(() => {
@@ -157,7 +141,6 @@ export default defineComponent({
             permsArray,
 
             selectedKeys,
-            appType,
         };
     },
 });

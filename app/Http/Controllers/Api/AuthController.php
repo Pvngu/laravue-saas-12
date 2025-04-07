@@ -206,7 +206,7 @@ class AuthController extends ApiBaseController
     public function user()
     {
         $user = auth('api')->user();
-        $user = $user->load('role', 'role.perms');
+        $user = $user->load('role', 'role.permissions');
 
         session(['user' => $user]);
 

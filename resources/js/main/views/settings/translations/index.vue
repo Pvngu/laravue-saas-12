@@ -39,13 +39,6 @@
                         >
                             {{ $t("langs.add") }}
                         </LangAddButton>
-                        <ImportTranslation
-                            v-if="appType == 'non-saas'"
-                            :pageTitle="$t('translations.import_translations')"
-                            :sampleFileUrl="sampleFileUrl"
-                            importUrl="translations/import"
-                            @onUploadSuccess="langAdded"
-                        />
                         <a-button
                             type="primary"
                             @click="
@@ -84,7 +77,7 @@ export default {
         ImportTranslation,
     },
     setup() {
-        const { permsArray, appType } = common();
+        const { permsArray } = common();
         const transSettingRef = ref(null);
         const sampleFileUrl = window.config.translatioins_sample_file;
 
@@ -95,7 +88,6 @@ export default {
         return {
             langAdded,
             permsArray,
-            appType,
             transSettingRef,
 
             sampleFileUrl,

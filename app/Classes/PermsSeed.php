@@ -2,9 +2,6 @@
 
 namespace App\Classes;
 
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Nwidart\Modules\Facades\Module;
 use Spatie\Permission\Models\Permission;
 
 class PermsSeed
@@ -49,18 +46,11 @@ class PermsSeed
     {
         $permissions = self::$mainPermissionsArray;;
 
-        $role = Role::create(['name' => 'admin']);
-
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
-            $role->givePermissionTo($permission);
+            Permission::create([
+                'name' => $permission
+            ]);
         }
-
-        $superAdmin = User::find(1);
-        $superAdmin->assignRole('admin');
-
-        //error log all permissions of superadmin
-        $superAdminPermissions = $superAdmin->getAllPermissions();
     }
 
     public static function seedMainPermissions()
