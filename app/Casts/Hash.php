@@ -2,8 +2,8 @@
 
 namespace App\Casts;
 
-use Sqids\Sqids;
 use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Hash implements CastsInboundAttributes
 {
@@ -36,10 +36,8 @@ class Hash implements CastsInboundAttributes
 	 */
 	public function set($model, $key, $value, $attributes)
 	{
-		$sqids = new Sqids();
-		
 		if ($value && !is_numeric($value)) {
-			$newValue = $sqids->decode((string) $value);
+			$newValue = Hashids::decode($value);
 			$value = $newValue && $newValue[0] ? $newValue[0] : $value;
 		}
 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Sqids\Sqids;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Common
 {
@@ -94,10 +94,8 @@ class Common
 
     public static function getIdFromHash($hash)
     {
-        $sqids = new Sqids();
-        
         if ($hash != "") {
-            $convertedId = $sqids->decode($hash);
+            $convertedId = Hashids::decode($hash);
             $id = $convertedId[0];
 
             return $id;
@@ -108,8 +106,7 @@ class Common
 
     public static function getHashFromId($id)
     {
-        $sqids = new Sqids();
-        $id = $sqids->encode($id);
+        $id = Hashids::encode($id);
 
         return $id;
     }

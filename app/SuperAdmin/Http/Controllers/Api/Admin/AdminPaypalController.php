@@ -25,7 +25,7 @@ use PayPal\Api\Plan;
 use PayPal\Common\PayPalModel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use Sqids\Sqids;
+use Vinkla\Hashids\Facades\Hashids;
 
 /** All Paypal Details class **/
 
@@ -65,8 +65,7 @@ class AdminPaypalController extends ApiBaseController
     public function paymentWithpaypal($planId, $type)
     {
         $request = request();
-        $sqids = new Sqids();
-        $convertedId = $sqids->decode($planId);
+        $convertedId = Hashids::decode($planId);
         $subscriptionPlanId = $convertedId[0];
         $subscriptionPlan = SubscriptionPlan::where('id', $subscriptionPlanId)->first();
         $company = Company::find(company()->id);

@@ -15,15 +15,14 @@ use App\SuperAdmin\Models\GlobalSettings;
 use App\SuperAdmin\Models\Subscription;
 use Examyou\RestAPI\Exceptions\ApiException;
 use Razorpay\Api\Api;
-use Sqids\Sqids;
+use Vinkla\Hashids\Facades\Hashids;
 
 class RazorpaySubscriptionController extends ApiBaseController
 {
 
     public function razorpaySubscription(RazorPayPaymentRequest $request)
     {
-        $sqids = new Sqids();
-        $convertedId = $sqids->decode($request->plan_id);
+        $convertedId = Hashids::decode($request->plan_id);
         $subscriptionPlanId = $convertedId[0];
         $planType =  $request->plan_type;
 
@@ -71,8 +70,7 @@ class RazorpaySubscriptionController extends ApiBaseController
 
         $api = new Api($apiKey, $secretKey);
 
-        $sqids = new Sqids();
-        $convertedId = $sqids->decode($request->plan_id);
+        $convertedId = Hashids::decode($request->plan_id);
         $subscriptionPlanId = $convertedId[0];
         $plan = SubscriptionPlan::find($subscriptionPlanId);
         $type = $request->type;
