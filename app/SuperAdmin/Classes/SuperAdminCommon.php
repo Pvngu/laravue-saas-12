@@ -827,17 +827,6 @@ class SuperAdminCommon
             Common::addCurrencies($globalCompany);
         }
 
-        // Creating SuperAdmin
-        // $superAdmin = SuperAdmin::create([
-        //     'company_id' => $globalCompany->id,
-        //     'name' => 'Super Admin',
-        //     'email' => 'superadmin@example.com',
-        //     'password' => '12345678',
-        //     'is_superadmin' => true,
-        //     'user_type' => 'super_admins',
-        //     'status' => 'enabled',
-        // ]);
-
         $superAdmin = new SuperAdmin();
         $superAdmin->company_id = $globalCompany->id;
         $superAdmin->name = 'Super Admin';
