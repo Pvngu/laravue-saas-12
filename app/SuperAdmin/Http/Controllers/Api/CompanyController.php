@@ -49,7 +49,6 @@ class CompanyController extends ApiBaseController
         $admin->email_verification_code = Str::random(50);
         $admin->status = 'enabled';
         $admin->save();
-        error_log($company);
 
         $adminRole = Role::withoutGlobalScope(CompanyScope::class)->where('name', 'admin')->where('company_id', $company->id)->first();
 

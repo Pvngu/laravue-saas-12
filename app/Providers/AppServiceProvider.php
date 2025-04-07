@@ -2,8 +2,25 @@
 
 namespace App\Providers;
 
+use App\Models\Company;
+use App\Models\Currency;
+use App\Models\Role;
+use App\Models\Settings;
+use App\Models\User;
+use App\Models\EmailTemplate;
+use App\Models\Form;
+use App\Models\FormFieldName;
+use App\Observers\CurrencyObserver;
+use App\Observers\RoleObserver;
+use App\Observers\EmailTemplateObserver;
+use App\Observers\FormObserver;
+use App\Observers\FormFieldNameObserver;
+use App\Observers\SettingObserver;
+use App\Observers\UserObserver;
+use App\SuperAdmin\Models\SuperAdmin;
+use App\SuperAdmin\Observers\SuperAdminObserver;
+use App\SuperAdmin\Observers\CompanyObserver;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,24 +49,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::middleware('web')
-            ->namespace($this->superAdminNamespace)
-            ->group(base_path('app/SuperAdmin/routes/main.php'));
-
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/common.php'));
-
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
-
-        Route::middleware('web')
-            ->namespace($this->superAdminNamespace)
-            ->group(base_path('app/SuperAdmin/routes/app.php'));
-
-        Route::middleware('web')
-            ->namespace($this->superAdminNamespace)
-            ->group(base_path('app/SuperAdmin/routes/superadmin.php'));
+        User::observe(UserObserver::class);
+        Settings::observe(SettingObserver::class);
+        Currency::observe(CurrencyObserver::class);
+        Role::observe(RoleObserver::class);
+        EmailTemplate::observe(EmailTemplateObserver::class);
+        Form::observe(FormObserver::class);
+        FormFieldName::observe(FormFieldNameObserver::class);
+        Company::observe(CompanyObserver::class);
+        SuperAdmin::observe(SuperAdminObserver::class);
     }
 }

@@ -61,9 +61,6 @@ class PermsSeed
 
         //error log all permissions of superadmin
         $superAdminPermissions = $superAdmin->getAllPermissions();
-        foreach ($superAdminPermissions as $permission) {
-            error_log($permission->name);
-        }
     }
 
     public static function seedMainPermissions()

@@ -13,6 +13,7 @@ class CompanyObserver
     public function created(Company $company)
     {
         // $company = Common::addCurrencies($company);
+        error_log('AaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
 
         if (!$company->is_global) {
             $company = $this->addAdminRole($company);
