@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api\User;
 
 use Illuminate\Validation\Rule;
 use App\Http\Requests\Api\BaseRequest;
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 
 class UpdateRequest extends BaseRequest
 {
@@ -26,7 +26,8 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         $loggedUser = auth('api')->user();
-        $convertedId = Hashids::decode($this->route('user'));
+        $sqids = new Sqids();
+        $convertedId = $sqids->decode($this->route('user'));
         $id = $convertedId[0];
 
         $rules = [

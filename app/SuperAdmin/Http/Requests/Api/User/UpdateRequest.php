@@ -4,7 +4,7 @@ namespace App\SuperAdmin\Http\Requests\Api\User;
 
 use Illuminate\Validation\Rule;
 use App\SuperAdmin\Http\Requests\Api\SuperAdminBaseRequest;
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 
 class UpdateRequest extends SuperAdminBaseRequest
 {
@@ -25,7 +25,8 @@ class UpdateRequest extends SuperAdminBaseRequest
 	 */
 	public function rules()
 	{
-		$convertedId = Hashids::decode($this->route('user'));
+		$sqids = new Sqids();
+		$convertedId = $sqids->decode($this->route('user'));
 		$id = $convertedId[0];
 
 		$rules = [

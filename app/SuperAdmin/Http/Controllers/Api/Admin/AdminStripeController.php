@@ -10,7 +10,7 @@ use App\Models\SubscriptionPlan;
 use App\SuperAdmin\Models\PaymentTranscation;
 use Examyou\RestAPI\ApiResponse;
 use Examyou\RestAPI\Exceptions\ApiException;
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 use App\SuperAdmin\Traits\StripeSettings;
 use App\SuperAdmin\Http\Requests\Api\Admin\StripePaymentRequest;
 
@@ -25,7 +25,8 @@ class AdminStripeController extends ApiBaseController
         $email = $request->email;
         $planType = $request->plan_type;
 
-        $convertedId = Hashids::decode($request->plan_id);
+        $sqids = new Sqids();
+        $convertedId = $sqids->decode($request->plan_id);
         $planId = $convertedId[0];
 
         // Check if subscription plan exists or not

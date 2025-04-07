@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Api\Lang;
 
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 use App\Http\Requests\Api\BaseRequest;
 
 class UpdateRequest extends BaseRequest
@@ -24,7 +24,8 @@ class UpdateRequest extends BaseRequest
 	 */
 	public function rules()
 	{
-		$convertedId = Hashids::decode($this->route('lang'));
+		$sqids = new Sqids();
+		$convertedId = $sqids->decode($this->route('lang'));
 		$id = $convertedId[0];
 
 		return [

@@ -4,7 +4,7 @@ namespace App\SuperAdmin\Http\Requests\Api\Company;
 
 use App\Models\Company;
 use App\SuperAdmin\Http\Requests\Api\SuperAdminBaseRequest;
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 use Illuminate\Validation\Rule;
 
 class UpdateRequest extends SuperAdminBaseRequest
@@ -27,7 +27,8 @@ class UpdateRequest extends SuperAdminBaseRequest
      */
     public function rules()
     {
-        $convertedId = Hashids::decode($this->route('company'));
+        $sqids = new Sqids();
+        $convertedId = $sqids->decode($this->route('company'));
         $id = $convertedId[0];
 
         $company = Company::select('admin_id')->withoutGlobalScope('company')->find($id);

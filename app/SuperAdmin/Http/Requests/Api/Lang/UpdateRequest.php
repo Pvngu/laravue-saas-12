@@ -2,7 +2,7 @@
 
 namespace App\SuperAdmin\Http\Requests\Api\Lang;
 
-use Vinkla\Hashids\Facades\Hashids;
+use Sqids\Sqids;
 use App\SuperAdmin\Http\Requests\Api\SuperAdminBaseRequest;
 
 class UpdateRequest extends SuperAdminBaseRequest
@@ -24,7 +24,8 @@ class UpdateRequest extends SuperAdminBaseRequest
      */
     public function rules()
     {
-        $convertedId = Hashids::decode($this->route('lang'));
+        $sqids = new Sqids();
+        $convertedId = $sqids->decode($this->route('lang'));
         $id = $convertedId[0];
 
         return [
