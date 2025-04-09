@@ -1,5 +1,5 @@
 <template>
-    <a-card class="page-content-container mt-20 mb-20">
+    <a-card class="page-content-container mt-1 mb-5">
         <div class="calendar-container">
             <FullCalendar 
                 :options="calendarOptions"

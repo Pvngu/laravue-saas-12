@@ -62,7 +62,7 @@
             <admin-page-table-content>
                 <a-alert
                     v-if="userComesFromSubscriptionPage"
-                    class="mb-20"
+                    class="mb-5"
                     :message="$t('offline_request.created')"
                     :description="$t('offline_request.created_message')"
                     type="success"

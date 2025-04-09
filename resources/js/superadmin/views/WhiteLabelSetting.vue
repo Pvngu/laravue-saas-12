@@ -1,5 +1,5 @@
 <template>
-    <a-typography-paragraph class="mt-40">
+    <a-typography-paragraph class="mt-2">
         <blockquote>
             <a-typography-text type="warning" strong>
                 {{ $t("setup_superadmin_company.white_label_update_details") }}
@@ -8,20 +8,20 @@
     </a-typography-paragraph>
 
     <a-alert
-        class="mt-20"
+        class="mt-1"
         :message="$t('setup_superadmin_company.hard_reload_message')"
         type="warning"
         show-icon
     />
 
     <a-form layout="vertical">
-        <div class="mt-40">
+        <div class="mt-2">
             <FormItemHeading>
                 {{ $t("setup_superadmin_company.default_company_logo") }}
             </FormItemHeading>
         </div>
 
-        <a-row :gutter="16" class="mb-40" v-if="formData && formData.dark_logo">
+        <a-row :gutter="16" class="mb-10" v-if="formData && formData.dark_logo">
             <a-col :xs="24" :sm="24" :md="6" :lg="6">
                 <a-form-item :label="$t('company.dark_logo')" name="dark_logo">
                     <Upload

@@ -54,7 +54,7 @@
                             ? responseData.current_subscription_plan.name
                             : ''
                     "
-                    class="page-content-container mt-20 mb-20 mt-20 mb-20"
+                    class="page-content-container mt-1 mb-5 mt-1 mb-5"
                 >
                     <a-row :gutter="16">
                         <a-col :span="12">
@@ -71,7 +71,7 @@
                             }}
                         </a-col>
                     </a-row>
-                    <a-row :gutter="16" class="mt-20">
+                    <a-row :gutter="16" class="mt-1">
                         <a-col :span="12">
                             <a-typography-text strong>
                                 {{ $t("subscription_plans.annual_price") }}
@@ -86,7 +86,7 @@
                             }}
                         </a-col>
                     </a-row>
-                    <a-row :gutter="16" class="mt-20">
+                    <a-row :gutter="16" class="mt-1">
                         <a-col :span="12">
                             <a-typography-text strong>
                                 {{ $t("subscription_plans.max_users") }}
@@ -108,7 +108,7 @@
                         </a-col>
                     </a-row>
 
-                    <a-row :gutter="16" class="mt-20">
+                    <a-row :gutter="16" class="mt-1">
                         <a-col :span="12">
                             <a-typography-text strong>
                                 {{ $t("payment_transaction.last_paid_on") }}
@@ -126,7 +126,7 @@
                         </a-col>
                     </a-row>
 
-                    <a-row :gutter="16" class="mt-20">
+                    <a-row :gutter="16" class="mt-1">
                         <a-col :span="12">
                             <a-typography-text strong>
                                 {{ $t("payment_transaction.next_payment_date") }}

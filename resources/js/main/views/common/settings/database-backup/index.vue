@@ -8,7 +8,7 @@
     </admin-page-filters>
 
     <admin-page-table-content>
-        <a-row class="mt-20">
+        <a-row class="mt-1">
             <a-col :span="24">
                 <a-alert
                     type="warning"
@@ -16,7 +16,7 @@
                     :message="$t('database_backup.backup_locaion_is')"
                 />
 
-                <div class="table-responsive mt-20">
+                <div class="table-responsive mt-1">
                     <a-table
                         :columns="columns"
                         :row-key="(record) => record.id"

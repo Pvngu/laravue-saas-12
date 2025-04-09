@@ -4,7 +4,7 @@
         @click="showModal"
         size="small"
     >
-        <a-button type="primary" size="small" class="mt-5">
+        <a-button type="primary" size="small" class="mt-1">
             <template #icon>
                 <EditOutlined />
             </template>

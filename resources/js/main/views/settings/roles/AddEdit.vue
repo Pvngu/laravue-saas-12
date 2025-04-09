@@ -92,7 +92,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -105,7 +105,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -118,7 +118,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -131,7 +131,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -154,7 +154,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -167,7 +167,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -182,7 +182,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -195,7 +195,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -208,7 +208,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -231,7 +231,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -244,7 +244,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -257,7 +257,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -293,7 +293,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -306,7 +306,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -319,7 +319,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -355,7 +355,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -368,7 +368,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -381,7 +381,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -419,7 +419,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -432,7 +432,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -447,7 +447,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -460,7 +460,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -473,7 +473,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -496,7 +496,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -509,7 +509,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -522,7 +522,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -535,7 +535,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -558,7 +558,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -571,7 +571,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -584,7 +584,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -620,7 +620,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -633,7 +633,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -646,7 +646,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -682,7 +682,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -695,7 +695,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -708,7 +708,7 @@
                                                             </a-checkbox>
                                                         </label>
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -744,7 +744,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -767,7 +767,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -790,7 +790,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <label
-                                                            class="form-check form-check-custom me-5 me-lg-20"
+                                                            class="form-check form-check-custom me-1 me-lg-5"
                                                         >
                                                             <a-checkbox
                                                                 :value="
@@ -992,7 +992,7 @@ tr {
     padding-bottom: 0.5rem;
 }
 
-.me-lg-20 {
+.me-lg-5 {
     margin-right: 5rem !important;
 }
 

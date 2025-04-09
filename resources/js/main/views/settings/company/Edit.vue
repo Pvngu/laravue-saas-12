@@ -42,7 +42,7 @@
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="20" :xl="20">
             <admin-page-table-content>
-                <a-card class="page-content-container mt-20 mb-20">
+                <a-card class="page-content-container mt-1 mb-5">
                     <a-form layout="vertical">
                         <a-row :gutter="16">
                             <a-col :xs="24" :sm="24" :md="12" :lg="12">

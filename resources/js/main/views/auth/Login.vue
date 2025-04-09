@@ -15,7 +15,7 @@
                             :bordered="innerWidth <= 768 ? true : false"
                         >
                             <a-form layout="vertical">
-                                <div class="login-logo mb-30">
+                                <div class="login-logo mb-7">
                                     <img
                                         class="login-img-logo"
                                         :src="globalSetting.light_logo_url"
@@ -26,14 +26,14 @@
                                     :message="onRequestSend.error"
                                     type="error"
                                     show-icon
-                                    class="mb-20 mt-10"
+                                    class="mb-5 mt-2"
                                 />
                                 <a-alert
                                     v-if="onRequestSend.success"
                                     :message="$t('messages.login_success')"
                                     type="success"
                                     show-icon
-                                    class="mb-20 mt-10"
+                                    class="mb-5 mt-2"
                                 />
                                 <a-form-item
                                     :label="$t('user.email_phone')"
@@ -69,7 +69,7 @@
                                     />
                                 </a-form-item>
 
-                                <a-form-item class="mt-30">
+                                <a-form-item class="mt-7">
                                     <a-button
                                         :loading="loading"
                                         @click="onSubmit"

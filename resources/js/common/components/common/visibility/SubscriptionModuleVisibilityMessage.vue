@@ -1,7 +1,7 @@
 <template>
 	<a-row
 		:gutter="[15, 15]"
-		class="mb-20"
+		class="mb-5"
 		v-if="
 			visibleSubscriptionModules &&
 			!visibleSubscriptionModules.includes(moduleName) &&

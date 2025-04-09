@@ -82,7 +82,7 @@
                                 </a-button>
 
                                 <CurrencyTable
-                                    class="mb-40"
+                                    class="mb-10"
                                     ref="currencyTableRef"
                                     :showFilter="false"
                                     @addOrEditSuccess="currencyAddSuccess"
@@ -90,7 +90,7 @@
                             </template>
                             <template v-if="currentStep == 1">
                                 <EditSetupSetting
-                                    class="mb-40"
+                                    class="mb-10"
                                     ref="companySettingRef"
                                     :showSubmitButton="false"
                                     @updateSuccess="companySettingUpdated"
@@ -100,7 +100,7 @@
                     </a-col>
                 </a-row>
 
-                <a-row class="mt-10">
+                <a-row class="mt-2">
                     <a-col :span="20" :offset="1">
                         <div
                             :style="{

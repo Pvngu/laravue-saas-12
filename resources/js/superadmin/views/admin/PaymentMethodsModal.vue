@@ -34,7 +34,7 @@
         >
             <a-row :gutter="16" justify="center" v-if="showPaymentButtons">
                 <a-col :span="24">
-                    <a-button @click="offlinePayment" type="primary" class="mb-20" block>
+                    <a-button @click="offlinePayment" type="primary" class="mb-5" block>
                         {{ $t(`offline_request.offline`) }}
                     </a-button>
                 </a-col>
@@ -63,7 +63,7 @@
                             <a-button
                                 @click="makePayment(paymentMethod)"
                                 type="primary"
-                                class="mb-20"
+                                class="mb-5"
                                 block
                             >
                                 {{ $t(`menu.${paymentMethod.name_key}`) }}

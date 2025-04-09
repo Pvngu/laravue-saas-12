@@ -6,7 +6,7 @@
 	</SuperAdminPageHeader>
 
 	<div class="dashboard-page-content-container">
-		<div class="mt-30 mb-20">
+		<div class="mt-7 mb-5">
 			<a-row :gutter="[15, 15]">
 				<a-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
 					<StateWidget bgColor="#6777ef">
@@ -63,13 +63,13 @@
 			</a-row>
 		</div>
 
-		<a-row :gutter="18" class="mt-30 mb-20">
+		<a-row :gutter="18" class="mt-7 mb-5">
 			<a-col :span="24">
 				<a-card :title="$t('superadmin_dashboard.recently_registered_companies')">
 					<CompanyTable :showFilterInput="false" :perPageItems="5" />
 					<template #extra>
 						<a-button
-							class="mt-10"
+							class="mt-2"
 							type="link"
 							@click="$router.push({ name: 'superadmin.companies.index' })"
 						>

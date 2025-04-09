@@ -37,7 +37,7 @@
             />
 
             <admin-page-table-content>
-                <a-row :gutter="16" class="mb-20">
+                <a-row :gutter="16" class="mb-5">
                     <a-col :span="24">
                         <a-alert
                             v-if="paymentSuccess"
@@ -53,7 +53,7 @@
                     </a-col>
                 </a-row>
 
-                <a-row :gutter="16" class="mb-20">
+                <a-row :gutter="16" class="mb-5">
                     <a-col :span="24">
                         <a-radio-group v-model:value="packageType">
                             <a-radio-button value="monthly">

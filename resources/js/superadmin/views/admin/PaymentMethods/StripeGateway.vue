@@ -1,6 +1,6 @@
 <template>
     <a-form layout="vertical">
-        <div class="mb-20">
+        <div class="mb-5">
             <a-alert v-if="errorText != ''" :message="errorText" type="error" />
         </div>
 
@@ -135,7 +135,7 @@
             </a-col>
         </a-row>
 
-        <a-row :gutter="16" class="mt-20">
+        <a-row :gutter="16" class="mt-1">
             <a-col :xs="24" :sm="24" :md="24" :lg="24">
                 <a-button type="primary" @click="pay" :loading="loading" block>
                     {{ $t("payment_settings.complete_transcation") }}

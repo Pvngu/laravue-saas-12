@@ -27,7 +27,7 @@
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="20" :xl="20">
             <a-card class="page-content-container">
-                <a-row class="mb-20">
+                <a-row class="mb-5">
                     <a-input-group>
                         <a-row :gutter="[15, 15]">
                             <a-col :xs="24" :sm="24" :md="12" :lg="12" :xl="6">

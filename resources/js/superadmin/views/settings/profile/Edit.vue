@@ -34,7 +34,7 @@
         <a-col :xs="24" :sm="24" :md="24" :lg="20" :xl="20">
             <admin-page-table-content>
                 <a-card
-                    class="page-content-container mt-20 mb-20"
+                    class="page-content-container mt-1 mb-5"
                     :bodyStyle="{ paddingTop: '15px' }"
                 >
                     <a-form layout="vertical">

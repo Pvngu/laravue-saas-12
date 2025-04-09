@@ -14,7 +14,7 @@
         @close="onClose"
     >
         <a-form layout="vertical">
-            <a-row :gutter="16" class="mb-10">
+            <a-row :gutter="16" class="mb-2">
                 <a-col :span="24">
                     <a-alert
                         type="warning"

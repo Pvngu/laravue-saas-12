@@ -1,14 +1,14 @@
 <template>
 	<a-row :gutter="16">
 		<a-col :xs="24" :sm="24" :md="24" :lg="24">
-			<div class="mb-20">
+			<div class="mb-5">
 				<a-alert v-if="errorText != ''" :message="errorText" type="error" />
 			</div>
 
 			<a-button
 				@click="makePayment"
 				type="primary"
-				class="mb-20"
+				class="mb-5"
 				:loading="loading"
 				block
 			>

@@ -22,7 +22,7 @@
                 :title="$t('currency.add')"
                 arrow-point-at-center
             >
-                <a-button @click="showAdd" class="ml-5 no-border-radius" :type="btnType">
+                <a-button @click="showAdd" class="ml-1 no-border-radius" :type="btnType">
                     <template #icon> <PlusOutlined /> </template>
                     <slot></slot>
                 </a-button>
@@ -30,7 +30,7 @@
             <a-button
                 v-else
                 @click="showAdd"
-                class="ml-5 no-border-radius"
+                class="ml-1 no-border-radius"
                 :type="btnType"
             >
                 <template #icon> <PlusOutlined /> </template>

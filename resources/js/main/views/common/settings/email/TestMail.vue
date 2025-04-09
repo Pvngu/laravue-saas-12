@@ -14,7 +14,7 @@
         @cancel="handleCancel"
     >
         <a-form layout="vertical">
-            <a-row v-if="errorMessage != ''" :gutter="16" class="mb-20">
+            <a-row v-if="errorMessage != ''" :gutter="16" class="mb-5">
                 <a-col :span="24">
                     <a-alert :message="errorMessage" type="error" show-icon />
                 </a-col>

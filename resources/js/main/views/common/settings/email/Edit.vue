@@ -1,7 +1,7 @@
 <template>
     <a-row>
         <a-col
-            class="settings-sidebar-content-container mt-20 mb-20"
+            class="settings-sidebar-content-container mt-1 mb-5"
             :xs="24"
             :sm="24"
             :md="24"

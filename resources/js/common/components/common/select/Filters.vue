@@ -26,7 +26,7 @@
                     </a-row>
                 </a-col>
                 <a-col :span="24">
-                    <a-form layout="vertical" class="mt-20">
+                    <a-form layout="vertical" class="mt-1">
                         <slot />
                     </a-form>
                 </a-col>

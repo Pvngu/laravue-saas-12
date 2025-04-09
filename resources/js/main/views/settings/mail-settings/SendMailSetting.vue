@@ -20,23 +20,23 @@
                 >
                     <a-row>
                         <!-- Staff Member -->
-                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-5">
+                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-1">
                             <a-typography-title :level="5">
                                 {{ $t("menu.staff_members") }}
                                 <TooltipCompany />
                             </a-typography-title>
                         </a-col>
-                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-5">
+                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-1">
                             <a-checkbox value="staff_member_create">
                                 {{ $t("common.on_create") }}
                             </a-checkbox>
                         </a-col>
-                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-5">
+                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-1">
                             <a-checkbox value="staff_member_update">
                                 {{ $t("common.on_update") }}
                             </a-checkbox>
                         </a-col>
-                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-5">
+                        <a-col :xs="24" :sm="24" :md="6" :lg="4" :xl="4" class="mb-1">
                             <a-checkbox value="staff_member_delete">
                                 {{ $t("common.on_delete") }}
                             </a-checkbox>

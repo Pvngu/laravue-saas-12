@@ -58,7 +58,7 @@
             @sentSuccess="onCancel"
         />
 
-        <EmailNotSetup class="mb-20" />
+        <EmailNotSetup class="mb-5" />
 
         <a-row>
             <a-col :span="24">

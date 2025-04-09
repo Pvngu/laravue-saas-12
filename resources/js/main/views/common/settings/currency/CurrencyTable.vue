@@ -12,7 +12,7 @@
             :successMessage="successMessage"
         />
 
-        <a-row v-if="showFilter" :gutter="[15, 15]" class="mb-20">
+        <a-row v-if="showFilter" :gutter="[15, 15]" class="mb-5">
             <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
                 <a-input-group compact>
                     <a-select
@@ -39,7 +39,7 @@
             </a-col>
         </a-row>
 
-        <a-row class="mt-20">
+        <a-row class="mt-1">
             <a-col :span="24">
                 <div class="table-responsive">
                     <a-table

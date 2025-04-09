@@ -267,7 +267,7 @@
                 {{ $t("user.admin_account_details") }}
             </FormItemHeading>
 
-            <a-row class="mb-20">
+            <a-row class="mb-5">
                 <a-col :span="24">
                     <EmailNotSetup />
                 </a-col>

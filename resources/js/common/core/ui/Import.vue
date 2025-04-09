@@ -5,7 +5,7 @@
             {{ pageTitle }}
         </a-button>
         <a-modal v-model:open="visible" :title="pageTitle">
-            <a-row :gutter="16" class="mb-10">
+            <a-row :gutter="16" class="mb-2">
                 <a-col :xs="24" :sm="24" :md="24" :lg="24">
                     <a-typography-paragraph>
                         <ul>

@@ -1,6 +1,6 @@
 <template>
     <a-form layout="vertical">
-        <div class="mt-40">
+        <div class="mt-2">
             <FormItemHeading>
                 {{ $t("setup_company.basic_settings") }}
             </FormItemHeading>
@@ -249,7 +249,7 @@
             </a-col>
         </a-row>
 
-        <div class="mt-30">
+        <div class="mt-7">
             <FormItemHeading>
                 {{ $t("setup_company.theme_settings") }}
             </FormItemHeading>
@@ -362,7 +362,7 @@
             </a-col>
         </a-row>
 
-        <div class="mt-30">
+        <div class="mt-7">
             <FormItemHeading>
                 {{ $t("setup_company.logo_settings") }}
             </FormItemHeading>

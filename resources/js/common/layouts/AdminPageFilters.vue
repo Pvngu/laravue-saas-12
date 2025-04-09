@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ padding: '10px 16px', background: 'white' }" class="mb-20">
+    <div :style="{ padding: '10px 16px', background: 'white' }" class="mb-5">
         <slot></slot>
     </div>
 </template>

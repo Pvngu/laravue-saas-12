@@ -254,7 +254,7 @@
                 {{ $t("subscription_plans.enabled_modules") }}
             </FormItemHeading>
 
-            <a-row :gutter="16" class="mb-20">
+            <a-row :gutter="16" class="mb-5">
                 <a-col :xs="24" :sm="24" :md="24" :lg="24">
                     <a-checkbox-group
                         v-model:value="formData.modules"

@@ -144,7 +144,7 @@
             </a-modal>
         </a-col>
     </a-row>
-    <a-row :gutter="[18, 18]" class="mt-20 mb-20">
+    <a-row :gutter="[18, 18]" class="mt-1 mb-5">
         <a-col :span="24">
             <a-table
                 :columns="columns"

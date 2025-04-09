@@ -52,7 +52,7 @@
 {{-- Features - End --}}
 
 {{-- Features Lists - Start --}}
-<section class="relative mt-20 pt-20 pb-32 bg-gradient-cyan2 overflow-hidden">
+<section class="relative mt-5 pt-20 pb-32 bg-gradient-cyan2 overflow-hidden">
     <div class="container mx-auto px-8">
         <div class="mb-16 mx-auto">
             <h2 class="mb-5 heading-text">{{ $frontSetting->feature_description }}</h2>

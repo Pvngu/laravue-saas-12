@@ -22,7 +22,7 @@
 			</div>
 			<slot></slot>
 			<div class="row">
-			<div class="col-sm-12 col-md-5">
+			<div class="col-sm-12 col-md-1">
 				{{ pageDetailsMessage }}
 			</div>
 			<div class="col-sm-12 col-md-7 text-right">

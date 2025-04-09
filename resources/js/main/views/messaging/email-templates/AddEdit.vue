@@ -141,7 +141,7 @@
                     selectedForm.form_fields &&
                     selectedForm.form_fields.length > 0
                 "
-                class="mb-20"
+                class="mb-5"
             >
                 <a-col
                     :xs="8"
@@ -161,7 +161,7 @@
                 </a-col>
             </a-row>
 
-            <a-row :gutter="16" class="mt-10">
+            <a-row :gutter="16" class="mt-2">
                 <a-col :xs="24" :sm="24" :md="24" :lg="24">
                     <a-form-item
                         :label="$t('email_template.status')"

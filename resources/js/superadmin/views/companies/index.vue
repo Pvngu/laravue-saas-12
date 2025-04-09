@@ -25,7 +25,7 @@
             </a-button>
         </template>
         <template #emailSettings>
-            <EmailNotSetup class="mb-20" />
+            <EmailNotSetup class="mb-5" />
         </template>
     </CompanyTable>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <a-row :gutter="18" class="mb-20">
+    <a-row :gutter="18" class="mb-5">
         <a-col :span="24">
             <a-button type="primary" @click="showAdd">
                 <template #icon><PlusOutlined /></template>
