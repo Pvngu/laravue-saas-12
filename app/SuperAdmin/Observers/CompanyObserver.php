@@ -5,6 +5,7 @@ namespace App\SuperAdmin\Observers;
 use App\Classes\Common;
 use App\Models\Company;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 use App\SuperAdmin\Classes\SuperAdminCommon;
 
 class CompanyObserver
@@ -25,6 +26,8 @@ class CompanyObserver
 
     public function addAdminRole($company)
     {
+        app(PermissionRegistrar::class)->setPermissionsTeamId($company->id);
+        
         // Seeding Data
         Role::create([
             'name' => 'admin',

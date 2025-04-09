@@ -54,7 +54,7 @@ class CompanyController extends ApiBaseController
 
         $admin->role_id = $adminRole->id;
         $admin->save();
-        $admin->roles()->attach($adminRole->id);
+        $admin->assignRole($adminRole->name, '');
 
 
         $company->admin_id = $admin->id;

@@ -29,6 +29,8 @@ class User extends BaseModel implements AuthenticatableContract, JWTSubject
 
     protected $filterable = ['name', 'user_type', 'email', 'status', 'phone'];
 
+    protected $guard_name = 'web';
+
     protected $hashableGetterFunctions = [
         'getXCompanyIdAttribute' => 'company_id',
         'getXRoleIdAttribute' => 'role_id',

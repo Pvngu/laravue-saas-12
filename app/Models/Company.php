@@ -61,6 +61,8 @@ class Company extends BaseModel
         });
     }
 
+    
+
     public function getLightLogoUrlAttribute()
     {
         $companyLogoPath = Common::getFolderPath('companyLogoPath');

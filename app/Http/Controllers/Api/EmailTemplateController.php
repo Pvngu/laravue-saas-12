@@ -24,7 +24,7 @@ class EmailTemplateController extends ApiBaseController
     {
         $user = user();
 
-        if (!$user->ability('admin', 'email_templates_view_all')) {
+        if (!$user->hasRole('admin') && !$user->hasPermissionTo('email_templates_view_all')) {
             $query = $query->where('created_by', $user->id);
         }
 

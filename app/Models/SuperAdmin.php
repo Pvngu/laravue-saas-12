@@ -32,6 +32,8 @@ class SuperAdmin extends BaseModel implements AuthenticatableContract, JWTSubjec
 
     protected $filterable = ['name', 'user_type', 'email', 'status', 'phone'];
 
+    protected $guard_name = 'web';
+
     protected $hashableGetterFunctions = [
         'getXRoleIdAttribute' => 'role_id',
     ];

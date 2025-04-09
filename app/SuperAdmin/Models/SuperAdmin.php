@@ -44,6 +44,8 @@ class SuperAdmin extends BaseModel implements AuthenticatableContract, JWTSubjec
         'last_active_on' => 'datetime',
     ];
 
+    protected $guard_name = 'web';
+
     protected static function boot()
     {
         parent::boot();

@@ -24,6 +24,8 @@ class Role extends BaseModel implements RoleContract
 
     protected $appends = ['xid'];
 
+    protected $guard_name = 'web';
+
     protected static function boot()
     {
         parent::boot();

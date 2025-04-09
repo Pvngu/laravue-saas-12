@@ -82,9 +82,10 @@ if (!function_exists('user')) {
 
         // TODO - Check if
         if ($user) {
+            setPermissionsTeamId($user->company_id);
             $user = $user->load(['roles' => function ($query) use ($user) {
                 return $query->withoutGlobalScope(CompanyScope::class)
-                    ->where('company_id', $user->company_id);
+                    ->where('roles.company_id', $user->company_id);
             }, 'roles.permissions']);
 
             session(['user' => $user]);

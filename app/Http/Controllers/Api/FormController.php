@@ -24,7 +24,7 @@ class FormController extends ApiBaseController
     {
         $user = user();
 
-        if (!$user->ability('admin', 'forms_view_all')) {
+        if (!$user->hasRole('admin') && !$user->hasPermissionTo('forms_view_all')) {
             $query = $query->where('created_by', $user->id);
         }
 

@@ -31,6 +31,8 @@ class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubje
 
     protected $filterable = ['name', 'user_type', 'email', 'status', 'phone'];
 
+    protected $guard_name = 'web';
+
     protected $hashableGetterFunctions = [
         'getXCompanyIdAttribute' => 'company_id',
         'getXRoleIdAttribute' => 'role_id',
@@ -46,7 +48,6 @@ class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubje
     protected static function boot()
     {
         parent::boot();
-        error_log('StaffMember boot method called');
 
         static::addGlobalScope('type', function (Builder $builder) {
             $builder->where('users.user_type', '=', 'staff_members');

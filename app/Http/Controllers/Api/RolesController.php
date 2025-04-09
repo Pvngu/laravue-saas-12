@@ -60,8 +60,6 @@ class RolesController extends ApiBaseController
 				$permissions[] = $this->getIdFromHash($allPermission);
 			}
 
-			error_log(json_encode($permissions));
-
 			// Sync the permissions with the role
 			// This will remove all existing permissions and add the new ones
 			$role->permissions()->sync($permissions);
