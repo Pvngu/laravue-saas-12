@@ -898,7 +898,7 @@ export default defineComponent({
             () => props.visible,
             (newVal, oldVal) => {
                 if (newVal && props.addEditType == "edit") {
-                    props.data.perms.forEach((value) => {
+                    props.data.permissions.forEach((value) => {
                         checkedPermissions.value.push(value.xid);
                     });
                 } else {
