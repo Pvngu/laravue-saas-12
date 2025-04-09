@@ -16,11 +16,11 @@ class Role extends BaseModel implements RoleContract
 {
     protected  $table = 'roles';
 
-    protected $default = ['xid', 'id', 'name'];
+    protected $default = ['xid', 'id', 'name', 'display_name'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    protected $hidden = ['id'];
+    protected $hidden = ['id', 'company_id', 'created_at', 'updated_at', 'guard_name', 'pivot'];
 
     protected $appends = ['xid'];
 

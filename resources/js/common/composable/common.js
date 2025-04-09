@@ -165,10 +165,10 @@ const common = () => {
     }
 
     const permsArray = computed(() => {
-        const permsArrayList = user && user.value && user.value.role ? [user.value.role.name] : [];
+        const permsArrayList = user && user.value && user.value.roles[0] ? [user.value.roles[0].name] : [];
 
-        if (user && user.value && user.value.role) {
-            forEach(user.value.role.perms, (permission) => {
+        if (user && user.value && user.value.roles[0]) {
+            forEach(user.value.roles[0].permissions, (permission) => {
                 permsArrayList.push(permission.name);
             });
         }

@@ -2,7 +2,7 @@ import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 
 const fields = () => {
-	const url = "roles?fields=id,xid,name,display_name,description,perms.limit(10000)";
+	const url = "roles?fields=id,xid,name,display_name,description,permissions.limit(10000)";
 	const addEditUrl = "roles";
 	const { t } = useI18n();
 
@@ -42,7 +42,7 @@ const fields = () => {
 
 	const getPreFetchData = () => {
 		axiosAdmin
-			.get("permissions?fields=id,xid,name,display_name&limit=10000")
+			.get("permissions?fields=id,xid,name&limit=10000")
 			.then((response) => {
 				preFetchData.permissions = response.data;
 			});

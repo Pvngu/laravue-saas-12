@@ -56,9 +56,7 @@ class CheckPermission
                     $permission = $routePathString . '_delete';
                 }
 
-                error_log('Has Permission: ' . ($user->hasPermissionTo($permission) ? 'true' : 'false'));
-
-                if ($permission != "" && !$user->ability('admin', $permission)) {
+                if ($permission != "" && !$user->hasRole('admin') && !$user->hasPermissionTo($permission)) {
                     throw new UnauthorizedException("Don't have valid permission");
                 }
             }

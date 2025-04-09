@@ -78,9 +78,4 @@ class User extends BaseModel implements AuthenticatableContract, JWTSubject
 
         return $this->profile_image == null ? asset('images/user.png') : Common::getFileUrl($userImagePath, $this->profile_image);
     }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
 }

@@ -84,9 +84,4 @@ class SuperAdmin extends BaseModel implements AuthenticatableContract, JWTSubjec
 
         return $this->profile_image == null ? asset('images/user.png') : Common::getFileUrl($userImagePath, $this->profile_image);
     }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
 }

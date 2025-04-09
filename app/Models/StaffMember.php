@@ -46,6 +46,7 @@ class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubje
     protected static function boot()
     {
         parent::boot();
+        error_log('StaffMember boot method called');
 
         static::addGlobalScope('type', function (Builder $builder) {
             $builder->where('users.user_type', '=', 'staff_members');
@@ -79,10 +80,5 @@ class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubje
         $userImagePath = Common::getFolderPath('userImagePath');
 
         return $this->profile_image == null ? asset('images/user.png') : Common::getFileUrl($userImagePath, $this->profile_image);
-    }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
     }
 }

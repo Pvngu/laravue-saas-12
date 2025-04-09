@@ -2,7 +2,7 @@ import { useI18n } from "vue-i18n";
 
 const fields = () => {
     const { t } = useI18n();
-    const url = "users?fields=id,xid,user_type,name,email,profile_image,profile_image_url,phone,address,status,created_at,role_id,x_role_id,role{id,xid,name,display_name}";
+    const url = "users?fields=id,xid,user_type,name,email,profile_image,profile_image_url,phone,address,status,created_at,role_id,x_role_id,roles{id,xid,name,display_name}";
     const addEditUrl = "users";
     const hashableColumns = ['role_id'];
 
