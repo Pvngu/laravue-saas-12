@@ -49,7 +49,6 @@ async function bootstrap() {
     window.i18n = i18n;
 
     routes.isReady().then(() => {
-        console.log('App Mounted')
         app.mount("#app");
     })
 }

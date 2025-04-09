@@ -20,7 +20,7 @@ class Permission extends BaseModel implements PermissionContract
 
 	protected $guarded = ['id', 'created_at', 'updated_at'];
 
-	protected $hidden = ['id', 'pivot'];
+	protected $hidden = ['id', 'pivot', 'guard_name', 'created_at', 'updated_at'];
 
 	protected $appends = ['xid'];
 

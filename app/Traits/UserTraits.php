@@ -2,15 +2,16 @@
 
 namespace App\Traits;
 
+use App\Models\Role;
 use App\Classes\Common;
 use App\Classes\Notify;
-use App\Http\Requests\Api\User\ImportRequest;
 use App\Imports\UserImport;
-use App\Models\Role;
+use App\Scopes\CompanyScope;
 use Examyou\RestAPI\ApiResponse;
-use Examyou\RestAPI\Exceptions\ApiException;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Examyou\RestAPI\Exceptions\ApiException;
+use App\Http\Requests\Api\User\ImportRequest;
 
 trait UserTraits
 {
@@ -34,7 +35,7 @@ trait UserTraits
         }
 
         if ($user->user_type == 'staff_members') {
-            $user->role_id = $loggedUser->ability('admin', 'assign_role') && $request->has('role_id') && $request->role_id ? $this->getIdFromHash($request->role_id) : $loggedUser->role_id;
+            $user->role_id = $loggedUser->hasRole('admin') && $request->has('role_id') && $request->role_id ? $this->getIdFromHash($request->role_id) : $loggedUser->role_id;
         }
 
         return $user;
@@ -81,7 +82,7 @@ trait UserTraits
         }
 
         if ($user->user_type == 'staff_members') {
-            $user->role_id = $loggedUser->ability('admin', 'assign_role') && $request->has('role_id') && $request->role_id ? $this->getIdFromHash($request->role_id) : $loggedUser->role_id;
+            $user->role_id = $loggedUser->hasRole('admin') && $request->has('role_id') && $request->role_id ? $this->getIdFromHash($request->role_id) : $loggedUser->role_id;
         }
 
         return $user;
@@ -98,12 +99,14 @@ trait UserTraits
     public function saveAndUpdateRole($user)
     {
         $request = request();
+        error_log('User Type: ' . $user);
 
         // Only For Staff Members
         if ($user->user_type == 'staff_members') {
+            $adminRole = Role::withoutGlobalScope(CompanyScope::class)->where('name', 'admin')->where('company_id', $user->company_id)->first();
 
-            DB::table('role_user')->where('user_id', $user->id)->delete();
-            $user->attachRole($user->role_id);
+            $user->roles()->detach();
+            $user->assignRole($adminRole->name, '');
         }
 
         return $user;
@@ -130,17 +133,16 @@ trait UserTraits
         // Then staff member cannot be deleted
         if ($user->user_type == "staff_members") {
             if ($user->role_id) {
-                $userRole = Role::find($user->role_id);
 
-                if ($userRole && $userRole->name == 'admin') {
-                    $adminRoleUserCount = Role::join('role_user', 'roles.id', '=', 'role_user.role_id')
-                        ->where('roles.name', '=', 'admin')
-                        ->count('role_user.user_id');
+                // if ($user->hasRole('admin')) {
+                //     $adminRoleUserCount = Role::join('role_user', 'roles.id', '=', 'role_user.role_id')
+                //         ->where('roles.name', '=', 'admin')
+                //         ->count('role_user.user_id');
 
-                    if ($adminRoleUserCount <= 1) {
-                        throw new ApiException('You are the only admin of app. So not able to delete.');
-                    }
-                }
+                //     if ($adminRoleUserCount <= 1) {
+                //         throw new ApiException('You are the only admin of app. So not able to delete.');
+                //     }
+                // }
             }
         }
 
