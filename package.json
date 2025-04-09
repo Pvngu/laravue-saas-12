@@ -8,7 +8,7 @@
     "dependencies": {
         "@stripe/stripe-js": "^1.42.1",
         "@vueup/vue-quill": "^1.2.0",
-        "ant-design-vue": "^4.0.0",
+        "ant-design-vue": "^4.2.6",
         "chart.js": "^3.6.0",
         "dayjs": "^1.10.7",
         "lodash-es": "^4.17.21",
@@ -28,25 +28,24 @@
         "vue3-styled-components": "^1.2.1",
         "vuex": "^4.0.2",
         "xlsx": "^0.18.5"
-
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
-        "axios": "^1.8.2",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.2.0",
-        "tailwindcss": "^4.0.0",
-        "vite": "^6.2.4",
         "@originjs/vite-plugin-commonjs": "^1.0.3",
+        "@tailwindcss/vite": "^4.0.0",
         "@vitejs/plugin-vue": "^5.2.3",
+        "axios": "^1.8.2",
         "compression": "^1.7.4",
+        "concurrently": "^9.0.1",
         "laravel-mix": "^6.0.34",
+        "laravel-vite-plugin": "^1.2.0",
         "less": "^4.1.2",
         "less-loader": "^10.2.0",
         "postcss": "^8.3.11",
         "sass": "^1.43.3",
         "sass-loader": "^12.2.0",
+        "tailwindcss": "^4.0.0",
         "unplugin-vue-components": "^0.25.1",
+        "vite": "^6.2.4",
         "vue-loader": "^16.8.3",
         "vue-stripe-js": "^1.0.1"
     }

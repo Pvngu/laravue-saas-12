@@ -4,7 +4,7 @@
             <a-page-header :title="$t(`menu.users`)" class="p-0!" />
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" class="text-xs!">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}
