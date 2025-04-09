@@ -45,7 +45,7 @@
                                     });
                                 }
                             "
-                            class="p-0"
+                            class="p-0!"
                         >
                             <a-avatar size="small" :src="user.profile_image_url" />
                         </a-button>

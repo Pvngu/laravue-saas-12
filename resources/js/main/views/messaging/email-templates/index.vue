@@ -1,10 +1,10 @@
 <template>
     <AdminPageHeader>
         <template #header>
-            <a-page-header :title="$t(`menu.email_templates`)" class="p-0" />
+            <a-page-header :title="$t(`menu.email_templates`)" class="p-0!" />
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" style="font-size: 12px">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}

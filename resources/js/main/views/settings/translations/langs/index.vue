@@ -9,7 +9,7 @@
                             name: 'admin.settings.translations.index',
                         })
                 "
-                class="p-0"
+                class="p-0!"
             >
                 <template
                     v-if="
@@ -28,7 +28,7 @@
             </a-page-header>
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" style="font-size: 12px">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}

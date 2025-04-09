@@ -19,7 +19,7 @@
                     <a-button
                         type="link"
                         @click="logout"
-                        class="p-0"
+                        class="p-0!"
                         :style="{ color: 'white' }"
                     >
                         {{ $t("menu.logout") }}

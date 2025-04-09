@@ -1,7 +1,7 @@
 <template>
     <SuperAdminPageHeader>
         <template #header>
-            <a-page-header :title="$t(`payment_settings.stripe_settings`)" class="p-0">
+            <a-page-header :title="$t(`payment_settings.stripe_settings`)" class="p-0!">
                 <template #extra>
                     <a-button type="primary" @click="onSubmit">
                         <template #icon> <SaveOutlined /> </template>
@@ -11,7 +11,7 @@
             </a-page-header>
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" style="font-size: 12px">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}

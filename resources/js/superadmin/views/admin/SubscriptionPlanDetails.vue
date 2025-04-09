@@ -4,7 +4,7 @@
             <a-page-header :title="$t(`menu.current_plan`)" style="padding: 0px" />
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" style="font-size: 12px">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}

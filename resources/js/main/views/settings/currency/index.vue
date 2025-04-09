@@ -1,7 +1,7 @@
 <template>
     <AdminPageHeader>
         <template #header>
-            <a-page-header :title="$t(`menu.currencies`)" class="p-0">
+            <a-page-header :title="$t(`menu.currencies`)" class="p-0!">
                 <template
                     v-if="
                         permsArray.includes('currencies_create') ||
@@ -17,7 +17,7 @@
             </a-page-header>
         </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" style="font-size: 12px">
+            <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}
