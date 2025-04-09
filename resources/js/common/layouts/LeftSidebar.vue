@@ -115,25 +115,6 @@
                         :visible="menuCollapsed"
                     />
 
-                    <a-menu-item
-                        v-if="
-                            permsArray.includes('form_field_names_view') ||
-                            permsArray.includes('admin')
-                        "
-                        @click="
-                            () => {
-                                menuSelected();
-                                $router.push({
-                                    name: 'admin.form_field_names.index',
-                                });
-                            }
-                        "
-                        key="form_field_names"
-                    >
-                        <InsertRowBelowOutlined />
-                        <span>{{ $t("menu.form_field_names") }}</span>
-                    </a-menu-item>
-
                     <a-sub-menu
                         key="messaging"
                         v-if="
@@ -164,23 +145,6 @@
                             <span>{{ $t("menu.email_templates") }}</span>
                         </a-menu-item>
                     </a-sub-menu>
-
-                    <a-menu-item
-                        v-if="
-                            permsArray.includes('forms_view') ||
-                            permsArray.includes('admin')
-                        "
-                        @click="
-                            () => {
-                                menuSelected();
-                                $router.push({ name: 'admin.forms.index' });
-                            }
-                        "
-                        key="forms"
-                    >
-                        <FolderOpenOutlined />
-                        <span>{{ $t("menu.forms") }}</span>
-                    </a-menu-item>
 
                     <component
                         v-for="(appModule, index) in appModules"

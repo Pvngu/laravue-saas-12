@@ -5,7 +5,6 @@ import AuthRoutes from "./auth";
 import DashboardRoutes from "./dashboard";
 import UserRoutes from "./users";
 import MessagingRoutes from "./messaging";
-import FormRoutes from "./forms";
 import SettingRoutes from "./settings";
 import superAdminRoutes from "../../superadmin/router/index";
 import subscriptionRoutes from "../../superadmin/router/admin/index";
@@ -24,8 +23,7 @@ const router = createRouter({
         ...DashboardRoutes,
         ...UserRoutes,
         ...SettingRoutes,
-        ...MessagingRoutes,
-        ...FormRoutes,
+        ...MessagingRoutes
     ],
     scrollBehavior: () => ({ left: 0, top: 0 }),
 });

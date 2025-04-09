@@ -104,36 +104,6 @@
                 </a-col>
             </a-row>
 
-            <a-row :gutter="16">
-                <a-col :span="24">
-                    <a-form-item :label="$t('form.form')" name="form_id">
-                        <span style="display: flex">
-                            <a-select
-                                v-model:value="selectedFormId"
-                                :placeholder="
-                                    $t('common.select_default_text', [$t('form.form')])
-                                "
-                                :allowClear="true"
-                                optionFilterProp="label"
-                                show-search
-                                @change="formSelected"
-                            >
-                                <a-select-option
-                                    v-for="allForm in allForms"
-                                    :key="allForm.xid"
-                                    :value="allForm.xid"
-                                    :label="allForm.name"
-                                    :form="allForm"
-                                >
-                                    {{ allForm.name }}
-                                </a-select-option>
-                            </a-select>
-                            <FormAddButton @onAddSuccess="formAdded" />
-                        </span>
-                    </a-form-item>
-                </a-col>
-            </a-row>
-
             <a-row
                 :gutter="16"
                 v-if="
@@ -217,7 +187,6 @@ import {
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import apiAdmin from "../../../../common/composable/apiAdmin";
-import FormAddButton from "../../forms/forms/AddButton.vue";
 
 export default defineComponent({
     props: [
@@ -235,7 +204,6 @@ export default defineComponent({
         SaveOutlined,
         InfoCircleOutlined,
         QuillEditor,
-        FormAddButton,
     },
     setup(props, { emit }) {
         const { addEditRequestAdmin, loading, rules } = apiAdmin();

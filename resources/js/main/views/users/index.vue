@@ -3,8 +3,37 @@
         <template #header>
             <a-page-header :title="$t(`menu.users`)" class="p-0!" />
         </template>
+        <template #actions>
+            <a-space>
+                <ExportButton :roles="roles" />
+                <template
+                    v-if="
+                        permsArray.includes('staff_members_create') ||
+                        permsArray.includes('admin')
+                    "
+                >
+                    <a-button type="primary" @click="addItem">
+                        <PlusOutlined />
+                        {{ $t("staff_member.add") }}
+                    </a-button>
+                </template>
+                <a-button
+                    v-if="
+                        table.selectedRowKeys.length > 0 &&
+                        (permsArray.includes('staff_members_delete') ||
+                            permsArray.includes('admin'))
+                    "
+                    type="primary"
+                    @click="showSelectedDeleteConfirm"
+                    danger
+                >
+                    <template #icon><DeleteOutlined /></template>
+                    {{ $t("common.delete") }}
+                </a-button>
+            </a-space>
+        </template>
         <template #breadcrumb>
-            <a-breadcrumb separator="-" class="text-xs">
+            <a-breadcrumb separator="-" style="font-size: 12px">
                 <a-breadcrumb-item>
                     <router-link :to="{ name: 'admin.dashboard.index' }">
                         {{ $t(`menu.dashboard`) }}
@@ -16,67 +45,6 @@
             </a-breadcrumb>
         </template>
     </AdminPageHeader>
-
-    <admin-page-filters>
-        <a-row :gutter="[16, 16]">
-            <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="10">
-                <a-space>
-                    <template
-                        v-if="
-                            permsArray.includes('staff_members_create') ||
-                            permsArray.includes('admin')
-                        "
-                    >
-                        <a-button type="primary" @click="addItem">
-                            <PlusOutlined />
-                            {{ $t("staff_member.add") }}
-                        </a-button>
-                    </template>
-                    <a-button
-                        v-if="
-                            table.selectedRowKeys.length > 0 &&
-                            (permsArray.includes('staff_members_delete') ||
-                                permsArray.includes('admin'))
-                        "
-                        type="primary"
-                        @click="showSelectedDeleteConfirm"
-                        danger
-                    >
-                        <template #icon><DeleteOutlined /></template>
-                        {{ $t("common.delete") }}
-                    </a-button>
-                </a-space>
-            </a-col>
-            <a-col :xs="24" :sm="24" :md="12" :lg="14" :xl="14">
-                <a-row :gutter="[16, 16]" justify="end">
-                    <a-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
-                        <a-input-group compact>
-                            <a-select
-                                style="width: 25%"
-                                v-model:value="table.searchColumn"
-                                :placeholder="$t('common.select_default_text', [''])"
-                            >
-                                <a-select-option
-                                    v-for="filterableColumn in filterableColumns"
-                                    :key="filterableColumn.key"
-                                >
-                                    {{ filterableColumn.value }}
-                                </a-select-option>
-                            </a-select>
-                            <a-input-search
-                                style="width: 75%"
-                                v-model:value="table.searchString"
-                                show-search
-                                @change="onTableSearch"
-                                @search="onTableSearch"
-                                :loading="table.filterLoading"
-                            />
-                        </a-input-group>
-                    </a-col>
-                </a-row>
-            </a-col>
-        </a-row>
-    </admin-page-filters>
 
     <admin-page-table-content>
         <AddEdit
@@ -91,7 +59,7 @@
             :successMessage="successMessage"
         />
 
-        <a-row>
+        <a-row class="mt-5">
             <a-col :span="24">
                 <div class="table-responsive">
                     <a-table
@@ -117,9 +85,43 @@
                         bordered
                         size="middle"
                     >
+                        <template #title>
+                            <a-row justify="end" align="center" class="table-header">
+                                <a-col 
+                                    :xs="21"
+                                    :sm="16"
+                                    :md="16"
+                                    :lg="12"
+                                    :xl="8"
+                                >
+                                    <a-input-group compact>
+                                        <a-select
+                                            style="width: 25%"
+                                            v-model:value="table.searchColumn"
+                                            :placeholder="$t('common.select_default_text', [''])"
+                                        >
+                                            <a-select-option
+                                                v-for="filterableColumn in filterableColumns"
+                                                :key="filterableColumn.key"
+                                            >
+                                                {{ filterableColumn.value }}
+                                            </a-select-option>
+                                        </a-select>
+                                        <a-input-search
+                                            style="width: 75%"
+                                            v-model:value="table.searchString"
+                                            show-search
+                                            @change="onTableSearch"
+                                            @search="onTableSearch"
+                                            :loading="table.filterLoading"
+                                        />
+                                    </a-input-group>
+                                </a-col>
+                            </a-row>
+                        </template>
                         <template #bodyCell="{ column, text, record }">
                             <template v-if="column.dataIndex === 'name'">
-                                <user-info :user="record" />
+                                <user-info @click="showViewUserDrawer(record)" :user="record" />
                             </template>
                             <template v-if="column.dataIndex === 'status'">
                                 <a-tag :color="statusColors[text]">

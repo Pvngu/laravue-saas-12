@@ -1,6 +1,6 @@
 <template>
 	<div class="breadcrumb-header">
-		<a-card class="page-content-sub-header breadcrumb-left-border" style="border-radius: 0;">
+		<a-card class="page-content-sub-header breadcrumb-left-border border-0">
 			<a-row justify="space-between" align="center">
 				<a-col>
 					<a-row>
@@ -12,7 +12,7 @@
 						</a-col>
 					</a-row>
 				</a-col>
-				<a-col style="padding-top: 14px;">
+				<a-col class="pt-3">
 					<a-row>
 						<a-col>
 							<slot key="actions" name="actions"></slot>
