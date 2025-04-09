@@ -9,6 +9,7 @@
 		<meta name="msapplication-TileImage" href="{{ $company->small_light_logo_url }}">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap">
         <link rel="stylesheet" href="{{ asset('css/pre-loader.css') }}">
+        @vite('resources/css/app.css')
     </head>
     <body>
         <div id="app">
