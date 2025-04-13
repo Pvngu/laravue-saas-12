@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Role;
+use App\Models\User;
 use App\Classes\Common;
 use App\Classes\Notify;
 use App\Imports\UserImport;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Examyou\RestAPI\Exceptions\ApiException;
 use App\Http\Requests\Api\User\ImportRequest;
+
+use function Laravel\Prompts\error;
 
 trait UserTraits
 {
@@ -56,29 +59,22 @@ trait UserTraits
     {
         $loggedUser = user();
         $request = request();
+        $company = company();
 
         // Can not change role because only one
         // Admin exists for whole app
         if ($user->user_type == "staff_members") {
-            $adminRoleUserCount = Role::join('role_user', 'roles.id', '=', 'role_user.role_id')
-                ->where('roles.name', '=', 'admin')
-                ->count('role_user.user_id');
+            $adminCount = User::role('admin')
+                ->where('company_id', $company->id)
+                ->count();
 
-            if ($adminRoleUserCount <= 1 && $user->isDirty('role_id')) {
+            if ($adminCount <= 1 && $user->isDirty('role_id') && $user->hasRole('admin')) {
                 throw new ApiException("Can not change role because you are only admin of app");
             }
         }
 
         if ($user->user_type != $this->userType) {
             throw new ApiException("Don't have valid permission");
-        }
-
-        // Demo mode admin cannot be edit
-        // email, password, status, role_id
-        if (env('APP_ENV') == 'production' && ($user->isDirty('password') || $user->isDirty('email') || $user->isDirty('status') || $user->isDirty('role_id'))) {
-            if ($user->user_type == 'staff_members' && ($user->getOriginal('email') == 'admin@example.com' || $user->getOriginal('email') == 'stockmanager@example.com' || $user->getOriginal('email') == 'salesman@example.com')) {
-                throw new ApiException('Not Allowed In Demo Mode');
-            }
         }
 
         if ($user->user_type == 'staff_members') {
@@ -99,14 +95,16 @@ trait UserTraits
     public function saveAndUpdateRole($user)
     {
         $request = request();
-        error_log('User Type: ' . $user);
 
         // Only For Staff Members
         if ($user->user_type == 'staff_members') {
-            $adminRole = Role::withoutGlobalScope(CompanyScope::class)->where('name', 'admin')->where('company_id', $user->company_id)->first();
+            $role = Role::where('id', $user->role_id)->where('company_id', company()->id)->first();
 
-            $user->roles()->detach();
-            $user->assignRole($adminRole->name, '');
+            if (!$role) {
+                throw new ApiException('Role not found');
+            }
+
+            $user->roles()->sync([$role->id => ['company_id' => company()->id]]);
         }
 
         return $user;
@@ -123,10 +121,6 @@ trait UserTraits
 
         if ($loggedUserCompany->admin_id == $user->id) {
             throw new ApiException('Can not delete company root admin');
-        }
-
-        if (env('APP_ENV') == 'production' && $user->user_type == 'staff_members' && ($user->getOriginal('email') == 'admin@example.com' || $user->getOriginal('email') == 'stockmanager@example.com' || $user->getOriginal('email') == 'salesman@example.com')) {
-            throw new ApiException('Not Allowed In Demo Mode');
         }
 
         // If application have only one admin
