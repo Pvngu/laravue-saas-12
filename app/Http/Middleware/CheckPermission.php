@@ -60,19 +60,6 @@ class CheckPermission
                     throw new UnauthorizedException("Don't have valid permission");
                 }
             }
-
-            // Checking special resource path with below permission
-            // if resource routes skips using $skipResourcePath array
-            // $checkPermissionRequestTypeIfSkipResources = [
-            //     [
-            //         'routePathString' => 'store',
-            //         'permission' => 'leads_create'
-            //     ]
-            // ];
-
-            // foreach ($checkPermissionRequestTypeIfSkipResources as $skipReousce) {
-            //     dd($skipReousce);
-            // }
         }
 
         return $next($request);

@@ -210,22 +210,6 @@ const common = () => {
         }
     }
 
-    const getCampaignUrl = (campaignStatus = 'active', viewType = 'self') => {
-        var campaignsUrl = `call-managers?fields=id,xid,name,status,form_id,x_form_id,form{id,xid,name,form_fields}&campaign_status=${campaignStatus}&view_type=${viewType}&limit=10000`;
-
-        return campaignsUrl;
-    }
-
-    const getCampaignStatsUrl = (campaignStatus = 'active', campaignId = undefined) => {
-        var campaignStatsUrl = `leads/campaign-stats?campaign_status=${campaignStatus}`;
-
-        if (campaignId != undefined) {
-            campaignStatsUrl += `&campaign_id=${campaignId}`;
-        }
-
-        return campaignStatsUrl;
-    }
-
     return {
         menuCollapsed,
         appSetting,
@@ -261,9 +245,6 @@ const common = () => {
         willSubscriptionModuleVisible,
         visibleSubscriptionModules,
         formatTimeDuration,
-
-        getCampaignUrl,
-        getCampaignStatsUrl,
     };
 }
 

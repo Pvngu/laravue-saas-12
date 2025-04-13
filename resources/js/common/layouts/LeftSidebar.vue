@@ -285,9 +285,7 @@ export default defineComponent({
         } = common();
         const rootSubmenuKeys = [
             "dashboard",
-            "leads",
             "users",
-            "salesmans",
             "forms",
             "form_field_names",
             "settings",
