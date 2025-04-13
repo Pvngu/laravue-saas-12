@@ -34,7 +34,6 @@ class FrontBaseController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            $this->langKey = front_lang_key();
             $this->selectedLang = Lang::where('key', $this->langKey)->first();
             $this->allLangs = Lang::where('enabled', 1)->get();
 

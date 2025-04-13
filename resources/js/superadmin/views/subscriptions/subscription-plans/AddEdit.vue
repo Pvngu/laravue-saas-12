@@ -270,20 +270,6 @@
                     </a-checkbox-group>
                 </a-col>
             </a-row>
-
-            <FormItemHeading>
-                {{ $t("subscription_plans.features") }}
-            </FormItemHeading>
-
-            <a-row :gutter="16">
-                <a-col :xs="24" :sm="24" :md="24" :lg="24">
-                    <DynamicFormFeatures
-                        :data="formData.features"
-                        :addText="$t('website_settings.add_feature')"
-                        @onEntry="(allTags) => (formData.features = allTags)"
-                    />
-                </a-col>
-            </a-row>
         </a-form>
         <template #footer>
             <a-space>
@@ -312,7 +298,6 @@ import { PlusOutlined, LoadingOutlined, SaveOutlined } from "@ant-design/icons-v
 import apiAdmin from "../../../../common/composable/apiAdmin";
 import common from "../../../../common/composable/common";
 import FormItemHeading from "../../../../common/components/common/typography/FormItemHeading.vue";
-import DynamicFormFeatures from "../../website-settings/features/DynamicFormFeatures.vue";
 
 export default defineComponent({
     props: [
@@ -329,7 +314,6 @@ export default defineComponent({
         LoadingOutlined,
         SaveOutlined,
         FormItemHeading,
-        DynamicFormFeatures,
     },
     setup(props, { emit }) {
         const { appSetting } = common();

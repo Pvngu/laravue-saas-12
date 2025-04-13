@@ -190,21 +190,6 @@
                             () => {
                                 menuSelected();
                                 $router.push({
-                                    name: 'superadmin.website_settings.header.index',
-                                });
-                            }
-                        "
-                        key="website_settings"
-                    >
-                        <GlobalOutlined />
-                        <span>{{ $t("menu.website_settings") }}</span>
-                    </a-menu-item>
-
-                    <a-menu-item
-                        @click="
-                            () => {
-                                menuSelected();
-                                $router.push({
                                     name: 'superadmin.settings.profile.index',
                                 });
                             }
@@ -272,7 +257,6 @@ export default defineComponent({
             "payment_transactions",
             "users",
             "payment_settings",
-            "website_settings",
             "settings",
             "email_queries",
         ];

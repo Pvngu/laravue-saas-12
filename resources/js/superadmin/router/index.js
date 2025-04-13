@@ -4,7 +4,6 @@ import company from "./company";
 import paymentTranscation from "./paymentTranscation";
 import users from "./users";
 import subscriptionPlan from "./subscriptionPlan";
-import websiteSettings from "./websiteSettings";
 import emailQueries from "./emailQueries";
 
 export default [
@@ -14,6 +13,5 @@ export default [
     ...paymentTranscation,
     ...users,
     ...subscriptionPlan,
-    ...websiteSettings,
     ...emailQueries,
 ];

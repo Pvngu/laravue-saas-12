@@ -69,14 +69,6 @@ ApiRoute::group(['namespace' => 'App\SuperAdmin\Http\Controllers\Api', 'prefix' 
     ApiRoute::post('email-queries/send-email', ['as' => 'api.email-queries', 'uses' => 'EmailQueryController@sendContactMessage']);
     ApiRoute::resource('email-queries', 'EmailQueryController', ['as' => 'api.superadmin', 'only' => ['index']]);
 
-
-    ApiRoute::group(['prefix' => 'website-settings'], function () {
-        ApiRoute::post('settings/update', ['as' => 'api.website-settings.settings.update', 'uses' => 'WebsiteSettingsController@updateSettingArray']);
-        ApiRoute::get('settings', ['as' => 'api.website-settings.settings.index', 'uses' => 'WebsiteSettingsController@getSettings']);
-        ApiRoute::post('website/update', ['as' => 'api.website-settings.website.update', 'uses' => 'WebsiteSettingsController@updateWebisteSettings']);
-        ApiRoute::get('website', ['as' => 'api.website-settings.website.index', 'uses' => 'WebsiteSettingsController@getWebsiteSettings']);
-    });
-
     ApiRoute::group(['prefix' => 'payment-settings'], function () {
         ApiRoute::post('paypal/update', ['as' => 'api.payment-settings.paypal.update', 'uses' => 'PaymentSettingsController@updatePaypal']);
         ApiRoute::get('paypal', ['as' => 'api.payment-settings.paypal.index', 'uses' => 'PaymentSettingsController@getPaypal']);

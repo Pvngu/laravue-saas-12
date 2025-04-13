@@ -65,11 +65,6 @@ router.beforeEach((to, from, next) => {
             return next();
         }
         return next({ name: "admin.dashboard.index" });
-    } else if (to.name.startsWith("front")) {
-        if (to.meta.requireAuth && !store.getters["front/isLoggedIn"]) {
-            store.dispatch("front/logout");
-            return next({ name: "front.homepage" });
-        }
     }
     next();
 });

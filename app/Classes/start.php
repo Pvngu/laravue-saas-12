@@ -3,20 +3,6 @@
 use App\Models\Company;
 use App\Scopes\CompanyScope;
 
-// Front Landing settings Language Key
-if (!function_exists('front_lang_key')) {
-
-    function front_lang_key()
-    {
-        if (session()->has('front_lang_key')) {
-            return session('front_lang_key');
-        }
-
-        session(['front_lang_key' => 'en']);
-        return session('front_lang_key');
-    }
-}
-
 // This is app setting for logged in company
 if (!function_exists('company')) {
 
