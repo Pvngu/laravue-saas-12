@@ -35,8 +35,6 @@
             window.config = {
                 'path': '{{ url('/') }}',
                 'download_lang_csv_url': "{{ route('api.extra.langs.download') }}",
-                'verify_purchase_background': "{{ asset('images/verify_purchase_background.svg') }}",
-                'login_background': "{{ asset('images/login_background.svg') }}",
                 'staff_member_sample_file': "{{ asset('images/sample_staff_members.csv') }}",
                 'translatioins_sample_file': "{{ asset('images/sample_translations.csv') }}",
                 'perPage': 10,

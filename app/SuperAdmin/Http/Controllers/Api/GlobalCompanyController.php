@@ -43,25 +43,4 @@ class GlobalCompanyController extends ApiBaseController
 
         return $company;
     }
-
-    public function getWebsiteLang()
-    {
-        $websiteLang = GlobalCompany::select('website_lang_id')->first();
-
-        if ($websiteLang) {
-            if ($websiteLang->website_lang_id && $websiteLang->website_lang_id != null) {
-                $langDetails = Lang::find($websiteLang->website_lang_id);
-
-                $lang = $langDetails ? $langDetails : Lang::where('key', 'en')->first();
-            } else {
-                $lang = Lang::where('key', 'en')->first();
-            }
-        } else {
-            $lang = Lang::where('key', 'en')->first();
-        }
-
-        return ApiResponse::make('Success', [
-            'lang' => $lang,
-        ]);
-    }
 }
