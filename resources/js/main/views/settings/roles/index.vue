@@ -3,6 +3,18 @@
         <template #header>
             <a-page-header :title="$t(`menu.roles`)" class="p-0!" />
         </template>
+        <template
+            v-if="
+                permsArray.includes('roles_create') ||
+                permsArray.includes('admin')
+            "
+            #actions
+        >
+            <a-button type="primary" @click="addItem">
+                <PlusOutlined />
+                {{ $t("role.add") }}
+            </a-button>
+        </template>
         <template #breadcrumb>
             <a-breadcrumb separator="-" class="text-xs">
                 <a-breadcrumb-item>
@@ -29,17 +41,6 @@
                 <a-row :gutter="[16, 16]">
                     <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="10">
                         <a-space>
-                            <template
-                                v-if="
-                                    permsArray.includes('roles_create') ||
-                                    permsArray.includes('admin')
-                                "
-                            >
-                                <a-button type="primary" @click="addItem">
-                                    <PlusOutlined />
-                                    {{ $t("role.add") }}
-                                </a-button>
-                            </template>
                             <a-button
                                 v-if="
                                     table.selectedRowKeys.length > 0 &&

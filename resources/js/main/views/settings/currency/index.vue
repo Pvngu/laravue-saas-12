@@ -2,19 +2,19 @@
     <AdminPageHeader>
         <template #header>
             <a-page-header :title="$t(`menu.currencies`)" class="p-0!">
-                <template
-                    v-if="
-                        permsArray.includes('currencies_create') ||
-                        permsArray.includes('admin')
-                    "
-                    #extra
-                >
-                    <a-button type="primary" @click="addItem">
-                        <PlusOutlined />
-                        {{ $t("currency.add") }}
-                    </a-button>
-                </template>
             </a-page-header>
+        </template>
+        <template
+            v-if="
+                permsArray.includes('currencies_create') ||
+                permsArray.includes('admin')
+            "
+            #actions
+        >
+            <a-button type="primary" @click="addItem">
+                <PlusOutlined />
+                {{ $t("currency.add") }}
+            </a-button>
         </template>
         <template #breadcrumb>
             <a-breadcrumb separator="-" class="text-xs">
@@ -39,19 +39,6 @@
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="20" :xl="20">
             <CurrencySettings ref="currencySettingRef">
-                <template #actionButtons>
-                    <template
-                        v-if="
-                            permsArray.includes('currencies_create') ||
-                            permsArray.includes('admin')
-                        "
-                    >
-                        <a-button type="primary" @click="addItem">
-                            <PlusOutlined />
-                            {{ $t("currency.add") }}
-                        </a-button>
-                    </template>
-                </template>
             </CurrencySettings>
         </a-col>
     </a-row>

@@ -2,13 +2,13 @@
     <AdminPageHeader>
         <template #header>
             <a-page-header :title="$t(`menu.profile`)" class="p-0!">
-                <template #extra>
-                    <a-button type="primary" @click="onSubmit">
-                        <template #icon> <SaveOutlined /> </template>
-                        {{ $t("common.update") }}
-                    </a-button>
-                </template>
             </a-page-header>
+        </template>
+        <template #actions>
+            <a-button type="primary" @click="onSubmit">
+                <template #icon> <SaveOutlined /> </template>
+                {{ $t("common.update") }}
+            </a-button>
         </template>
         <template #breadcrumb>
             <a-breadcrumb separator="-" class="text-xs">

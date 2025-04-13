@@ -2,22 +2,22 @@
     <AdminPageHeader>
         <template #header>
             <a-page-header :title="$t(`menu.company`)" class="p-0!">
-                <template
-                    v-if="
-                        permsArray.includes('companies_edit') ||
-                        permsArray.includes('admin')
-                    "
-                    #extra
-                >
-                    <a-space>
-                        <a-button type="primary" @click="onSubmit">
-                            <template #icon> <SaveOutlined /> </template>
-                            {{ $t("common.update") }}
-                        </a-button>
-                        <CreateMenuSetting @success="addMenuSettingUpdated" />
-                    </a-space>
-                </template>
             </a-page-header>
+        </template>
+        <template
+            v-if="
+                permsArray.includes('companies_edit') ||
+                permsArray.includes('admin')
+            "
+            #actions
+        >
+            <a-space>
+                <a-button type="primary" @click="onSubmit">
+                    <template #icon> <SaveOutlined /> </template>
+                    {{ $t("common.update") }}
+                </a-button>
+                <CreateMenuSetting @success="addMenuSettingUpdated" />
+            </a-space>
         </template>
         <template #breadcrumb>
             <a-breadcrumb separator="-" class="text-xs">
