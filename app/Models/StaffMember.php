@@ -82,4 +82,9 @@ class StaffMember extends BaseModel implements AuthenticatableContract, JWTSubje
 
         return $this->profile_image == null ? asset('images/user.png') : Common::getFileUrl($userImagePath, $this->profile_image);
     }
+
+    public function getMorphClass()
+    {
+        return \App\Models\User::class;
+    }
 }
