@@ -2,16 +2,12 @@
 
 namespace App\Classes;
 
-use App\Models\Campaign;
 use App\Models\Currency;
 use App\Models\Lang;
-use App\Models\Lead;
-use App\Models\LeadLog;
 use App\Models\Settings;
 use App\Models\StaffMember;
 use App\Scopes\CompanyScope;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Vinkla\Hashids\Facades\Hashids;
@@ -45,10 +41,6 @@ class Common
             $folderString = "companyLogoPath";
         } else if ($folder == "langs") {
             $folderString = "langImagePath";
-        } else if ($folder == "expenses") {
-            $folderString = "expenseBillPath";
-        } else if ($folder == "product") {
-            $folderString = "productLogoPath";
         } else if ($folder == "website") {
             $folderString = "websiteImagePath";
         } else if ($folder == "offline-requests") {
@@ -183,15 +175,6 @@ class Common
         $newCurrency->position = 'front';
         $newCurrency->is_deletable = false;
         $newCurrency->save();
-
-        $rupeeCurrency = new Currency();
-        $rupeeCurrency->company_id = $company->id;
-        $rupeeCurrency->name = 'Rupee';
-        $rupeeCurrency->code = 'INR';
-        $rupeeCurrency->symbol = '₹';
-        $rupeeCurrency->position = 'front';
-        $rupeeCurrency->is_deletable = false;
-        $rupeeCurrency->save();
 
         $enLang = Lang::where('key', 'en')->first();
 
