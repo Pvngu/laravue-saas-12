@@ -1,6 +1,9 @@
 <template>
 	<div class="breadcrumb-header">
-		<a-card class="page-content-sub-header breadcrumb-left-border border-0">
+		<a-card
+			style="border-radius: 0;"
+			class="page-content-sub-header breadcrumb-left-border border-0"
+		>
 			<a-row justify="space-between" align="center">
 				<a-col>
 					<a-row>
