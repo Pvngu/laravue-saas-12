@@ -12,7 +12,6 @@ use App\Models\Company;
 use App\Models\Currency;
 use App\Models\Form;
 use App\Models\Lang;
-use App\Models\Salesman;
 use App\Models\Settings;
 use App\Models\StaffMember;
 use App\Models\User;
@@ -95,12 +94,8 @@ class AuthController extends ApiBaseController
     public function allUsers()
     {
         $request = request();
-
-        if ($request->has('log_type') && $request->log_type == 'salesman_bookings') {
-            $users = Salesman::select('id', 'name', 'profile_image')->get();
-        } else {
-            $users = StaffMember::select('id', 'name', 'profile_image')->get();
-        }
+        
+        $users = StaffMember::select('id', 'name', 'profile_image')->get();
 
         return ApiResponse::make('Success', [
             'users' => $users

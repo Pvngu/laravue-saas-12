@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Company;
 use App\Models\Role;
-use App\Models\Salesman;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Scopes\CompanyScope;
