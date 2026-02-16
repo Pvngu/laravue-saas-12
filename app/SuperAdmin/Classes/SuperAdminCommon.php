@@ -229,7 +229,7 @@ class SuperAdminCommon
         $globalCompany->save();
 
         $usdCurrency = new Currency();
-        $usdCurrency->company_id = $superAdmin->id;
+        $usdCurrency->company_id = $globalCompany->id;
         $usdCurrency->name = 'Dollar';
         $usdCurrency->code = 'USD';
         $usdCurrency->symbol = '$';

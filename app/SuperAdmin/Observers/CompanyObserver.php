@@ -36,6 +36,20 @@ class CompanyObserver
             'description' => 'Admin is allowed to manage everything of the app.',
         ]);
 
+        Role::create([
+            'name' => 'manager',
+            'company_id' => $company->id,
+            'display_name' => 'Manager',
+            'description' => 'Manager is allowed to manage specific areas of the app.',
+        ]);
+
+        Role::create([
+            'name' => 'member',
+            'company_id' => $company->id,
+            'display_name' => 'Member',
+            'description' => 'Member has basic access to the app.',
+        ]);
+
         return $company;
     }
 }

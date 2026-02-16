@@ -23,10 +23,9 @@ class UsersTableSeeder extends Seeder
         Model::unguard();
 
         DB::table('users')->delete();
-        DB::table('role_user')->delete();
+        DB::table('model_has_roles')->delete();
 
         DB::statement('ALTER TABLE users AUTO_INCREMENT = 1');
-        DB::statement('ALTER TABLE role_user AUTO_INCREMENT = 1');
 
         $count = env('SEED_RECORD_COUNT', 30);
         $faker = \Faker\Factory::create();
@@ -44,7 +43,7 @@ class UsersTableSeeder extends Seeder
         $admin->role_id = $adminRole->id;
         $admin->user_type = "staff_members";
         $admin->save();
-        $admin->attachRole($adminRole->id);
+        $admin->assignRole($adminRole->id);
 
         $company->admin_id = $admin->id;
         $company->save();
@@ -60,7 +59,7 @@ class UsersTableSeeder extends Seeder
         $manager->role_id = $managerRole->id;
         $manager->user_type = "staff_members";
         $manager->save();
-        $manager->attachRole($managerRole->id);
+        $manager->assignRole($managerRole->id);
 
         // Member
         $memberRole = Role::withoutGlobalScope(CompanyScope::class)
@@ -73,7 +72,7 @@ class UsersTableSeeder extends Seeder
         $member->role_id = $memberRole->id;
         $member->user_type = "staff_members";
         $member->save();
-        $member->attachRole($memberRole->id);
+        $member->assignRole($memberRole->id);
 
         $allRoles = [
             $adminRole->id,
@@ -93,7 +92,7 @@ class UsersTableSeeder extends Seeder
             $user->save();
 
             // Assign Role
-            $user->attachRole($roleId);
+            $user->assignRole($roleId);
         });
     }
 }
